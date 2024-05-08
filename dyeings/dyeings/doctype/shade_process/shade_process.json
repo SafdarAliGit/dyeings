@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SN-.########",
+ "creation": "2024-05-08 17:40:15.800263",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "amended_from",
+  "combo_name",
+  "fabric",
+  "content",
+  "operation",
+  "column_break_sru1m",
+  "date",
+  "ref_shade_no",
+  "pantone_no",
+  "light_source",
+  "service_item",
+  "section_break_ounqh",
+  "shade_process_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shade Process",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "combo_name",
+   "fieldtype": "Data",
+   "label": "Combo Name"
+  },
+  {
+   "fieldname": "fabric",
+   "fieldtype": "Data",
+   "label": "Fabric"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Data",
+   "label": "Content"
+  },
+  {
+   "fieldname": "operation",
+   "fieldtype": "Link",
+   "label": "Operation",
+   "options": "Operation"
+  },
+  {
+   "fieldname": "column_break_sru1m",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "ref_shade_no",
+   "fieldtype": "Data",
+   "label": "Ref Shade No "
+  },
+  {
+   "fieldname": "pantone_no",
+   "fieldtype": "Data",
+   "label": "Pantone No"
+  },
+  {
+   "fieldname": "light_source",
+   "fieldtype": "Data",
+   "label": "Light Source"
+  },
+  {
+   "fieldname": "service_item",
+   "fieldtype": "Link",
+   "label": "Service item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_ounqh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shade_process_item",
+   "fieldtype": "Table",
+   "label": "Shade Process Item",
+   "options": "Shade Process Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-08 18:14:02.692560",
+ "modified_by": "Administrator",
+ "module": "Dyeings",
+ "name": "Shade Process",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
