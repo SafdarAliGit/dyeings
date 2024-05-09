@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:ref_shade_no",
+ "creation": "2024-05-09 20:09:05.819541",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ref_shade_no",
+  "dyeing_process_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "ref_shade_no",
+   "fieldtype": "Link",
+   "label": "Ref Shade No",
+   "options": "Shade No",
+   "unique": 1
+  },
+  {
+   "fieldname": "dyeing_process_item",
+   "fieldtype": "Table",
+   "label": "Dyeing Process Item",
+   "options": "Dyeing Process Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-09 20:41:48.544505",
+ "modified_by": "Administrator",
+ "module": "Dyeings",
+ "name": "Dyeing Overhead",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

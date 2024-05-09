@@ -11,7 +11,8 @@
   "customer",
   "amended_from",
   "combo_name",
-  "fabric",
+  "fabric_type",
+  "fabric_sample_qty",
   "content",
   "operation",
   "column_break_sru1m",
@@ -21,7 +22,13 @@
   "light_source",
   "service_item",
   "section_break_ounqh",
-  "shade_process_item"
+  "shade_process_item",
+  "total_shade_process_item_amount",
+  "dyeing_overhead_items",
+  "section_break_p8xcj",
+  "total_dyeing_overhead_items_amount",
+  "column_break_lgt2t",
+  "total_cost"
  ],
  "fields": [
   {
@@ -43,11 +50,6 @@
    "fieldname": "combo_name",
    "fieldtype": "Data",
    "label": "Combo Name"
-  },
-  {
-   "fieldname": "fabric",
-   "fieldtype": "Data",
-   "label": "Fabric"
   },
   {
    "fieldname": "content",
@@ -72,8 +74,9 @@
   },
   {
    "fieldname": "ref_shade_no",
-   "fieldtype": "Data",
-   "label": "Ref Shade No "
+   "fieldtype": "Link",
+   "label": "Ref Shade No ",
+   "options": "Dyeing Overhead"
   },
   {
    "fieldname": "pantone_no",
@@ -100,12 +103,59 @@
    "fieldtype": "Table",
    "label": "Shade Process Item",
    "options": "Shade Process Item"
+  },
+  {
+   "fieldname": "fabric_sample_qty",
+   "fieldtype": "Float",
+   "label": "Fabric Sample Qty"
+  },
+  {
+   "fieldname": "fabric_type",
+   "fieldtype": "Link",
+   "label": "Fabric",
+   "options": "Fabric Type"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_shade_process_item_amount",
+   "fieldtype": "Data",
+   "label": "Dyes & Chemical Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dyeing_overhead_items",
+   "fieldtype": "Table",
+   "label": "Dyeing Overhead Items",
+   "options": "Dyeing Overhead Items"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_dyeing_overhead_items_amount",
+   "fieldtype": "Data",
+   "label": "Overhead Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Dyes & Chemical Cost + Overhead Cost",
+   "fieldname": "total_cost",
+   "fieldtype": "Data",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lgt2t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_p8xcj",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-08 18:14:02.692560",
+ "modified": "2024-05-09 20:58:41.613120",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",

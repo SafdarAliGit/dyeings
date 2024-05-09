@@ -8,6 +8,7 @@
  "field_order": [
   "seq_no",
   "item",
+  "percentage",
   "uom",
   "qty",
   "rate",
@@ -45,12 +46,17 @@
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Amount"
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "label": "Percentage"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-08 18:13:56.936723",
+ "modified": "2024-05-09 20:01:02.536310",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process Item",
