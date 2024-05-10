@@ -3,6 +3,14 @@
 
 frappe.ui.form.on('Shade Process', {
     refresh: function (frm) {
+            frm.set_query('item', 'shade_process_item', function (doc, cdt, cdn) {
+            var d = locals[cdt][cdn];
+            return {
+                filters: [
+                    ["Item", "item_group", "in", ["Dyes", "Chemicals"]]
+                ]
+            };
+        }),
         frm.set_query("fabric", function () {
             return {
                 filters: [
@@ -42,6 +50,31 @@ frappe.ui.form.on('Shade Process', {
             }
         });
     },
+    ref_shade_no: function (frm) {
+        if (frm.doc.ref_shade_no) {
+            var ref_shade_no = frm.doc.ref_shade_no;
+            frm.clear_table('dyeing_overhead_items');
+            me.frm.call({
+                method: "dyeings.dyeings.utils.fetch_dying_process_items.fetch_dying_process_items",
+                args: {
+                    ref_shade_no: ref_shade_no
+                },
+                callback: function (r, rt) {
+
+                    if (r.message.dyeing_process_items) {
+                        r.message.dyeing_process_items.forEach(function (i) {
+                            let entry = frm.add_child("dyeing_overhead_items");
+                            entry.dyeing_process = i.dyeing_process,
+                                entry.overhead_account = i.overhead_account,
+                                entry.amount = i.amount
+                        });
+                    }
+                    frm.refresh_field('dyeing_overhead_items');
+                    total_dyeing_overhead_items_amount(frm);
+                }
+            });
+        }
+    }
 
 });
 
@@ -49,31 +82,17 @@ frappe.ui.form.on('Shade Process Item', {
     qty: function (frm, cdt, cdn) {
         var row = locals[cdt][cdn];
         frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
-        total_chemical_cost(frm);
+        total_shade_process_item_amount(frm);
     },
     rate: function (frm, cdt, cdn) {
         var row = locals[cdt][cdn];
         frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
-        total_chemical_cost(frm);
+        total_shade_process_item_amount(frm);
     },
     percentage: function (frm, cdt, cdn) {
-        var row = locals[cdt][cdn];
-        frappe.model.set_value(cdt, cdn, 'qty', (row.percentage / 100) * frm.doc.fabric_qty);
-        total_chemical_cost(frm);
+        shade_process_item_qty(frm, cdt, cdn);
     }
 });
-
-
-function total_chemical_cost(frm) {
-    var amount = 0;
-    var overhead_cost = 0;
-    $.each(frm.doc.shade_process_item || [], function (i, d) {
-        amount += flt(d.amount) || 0;
-    });
-    frm.set_value("chemical_cost", parseFloat(amount).toFixed(3))
-    overhead_cost = frm.doc.overhead_cost || 0;
-    frm.set_value("grand_total", (parseFloat(amount) + parseFloat(overhead_cost)).toFixed(3))
-}
 
 function total_overhead_cost(frm) {
     var amount = 0;
@@ -92,3 +111,28 @@ frappe.ui.form.on('Shade Process Account', {
         total_overhead_cost(frm);
     }
 });
+
+function total_shade_process_item_amount(frm) {
+    frm.doc.total_shade_process_item_amount = 0;
+    var spi = frm.doc.shade_process_item;
+    for (var i in spi) {
+        frm.doc.total_shade_process_item_amount += flt(spi[i].amount) || 0
+    }
+    frm.refresh_field("total_shade_process_item_amount");
+}
+
+function total_dyeing_overhead_items_amount(frm) {
+    frm.doc.total_dyeing_overhead_items_amount = 0;
+    var doi = frm.doc.dyeing_overhead_items;
+    for (var i in doi) {
+        frm.doc.total_dyeing_overhead_items_amount += flt(doi[i].amount) || 0
+    }
+    frm.refresh_field("total_dyeing_overhead_items_amount");
+    frm.set_value("total_cost", frm.doc.total_shade_process_item_amount + frm.doc.total_dyeing_overhead_items_amount);
+}
+function shade_process_item_qty(frm, cdt, cdn) {
+    var row = locals[cdt][cdn];
+    var fabric_sample_qty = frm.doc.fabric_sample_qty || 0;
+    frappe.model.set_value(cdt, cdn, 'qty', fabric_sample_qty * (row.percentage / 100));
+    total_shade_process_item_amount(frm);
+}
