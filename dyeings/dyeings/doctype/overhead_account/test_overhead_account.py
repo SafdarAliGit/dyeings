@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestOverHeadAccount(FrappeTestCase):
+class TestOverheadAccount(FrappeTestCase):
 	pass
