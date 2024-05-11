@@ -215,3 +215,5 @@ app_license = "MIT"
 # auth_hooks = [
 #	"dyeings.auth.validate"
 # ]
+doctype_js = {"Quotation": "public/js/custom_quotation.js",
+              }

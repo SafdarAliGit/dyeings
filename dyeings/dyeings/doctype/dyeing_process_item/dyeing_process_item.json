@@ -8,7 +8,8 @@
  "field_order": [
   "dyeing_process",
   "overhead_account",
-  "amount"
+  "amount",
+  "dyeing_process_type"
  ],
  "fields": [
   {
@@ -26,18 +27,22 @@
    "options": "Overhead Account"
   },
   {
-   "default": "0",
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Amount",
-   "read_only": 1
+   "label": "Amount"
+  },
+  {
+   "fieldname": "dyeing_process_type",
+   "fieldtype": "Select",
+   "label": "Dyeing Process Type",
+   "options": "Wet\nFinishing"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-10 16:57:11.051832",
+ "modified": "2024-05-10 20:38:55.183685",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Dyeing Process Item",
