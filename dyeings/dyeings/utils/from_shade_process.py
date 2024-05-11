@@ -8,7 +8,7 @@ def from_shade_process(**args):
     dpi_query = frappe.get_all(
         "Shade Process",
         filters={"docstatus": 1, "name": ["in", json.loads(names)]},
-        fields=["name", "total_cost"]
+        fields=["name", "total_cost","fabric_type"]
     )
 
     return {'shade_process': dpi_query}

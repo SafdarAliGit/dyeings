@@ -6,9 +6,14 @@ frappe.ui.form.on("Quotation", {
 
             // MultiSelectDialog for individual child selection
             dialog = new frappe.ui.form.MultiSelectDialog({
-                doctype: "Shade Process", target: frm, setters: {
-                    total_cost: null, customer: frm.doc.party_name
-                }, add_filters_group: 1, date_field: "transaction_date", columns: ["name", "total_cost", "customer"], // child item columns to be displayed
+                doctype: "Shade Process",
+                target: frm,
+                setters: {
+                    total_cost: null, customer: frm.doc.party_name,fabric_type:null
+                },
+                add_filters_group: 1,
+                date_field: "transaction_date",
+                columns: ["name", "total_cost", "customer", "fabric_type"], // child item columns to be displayed
                 get_query() {
                     return {
                         filters: {docstatus: ['=', 1]}
@@ -30,7 +35,8 @@ frappe.ui.form.on("Quotation", {
                                         let entry = frm.add_child("items");
                                         entry.shade_process = i.name,
                                             entry.cost_rate = i.total_cost,
-                                            entry.qty = 1
+                                            entry.qty = 1,
+                                            entry.fabric_type = i.fabric_type
                                     })
                                     // Refresh field
                                     frm.refresh_field('items');
