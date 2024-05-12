@@ -28,7 +28,7 @@ frappe.ui.form.on("Quotation", {
                                 names: selections // Sending list of names
                             }, callback: function (r) {
                                 // Clear existing table
-                                frm.clear_table('items');
+                                // frm.clear_table('items');
                                 if (r.message) {
                                     // Add items to table
                                     r.message.shade_process.forEach(function (i) {
