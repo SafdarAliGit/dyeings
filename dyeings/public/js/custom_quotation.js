@@ -5,7 +5,7 @@ frappe.ui.form.on("Quotation", {
             let dialog;
 
             // MultiSelectDialog for individual child selection
-            dialog = new frappe.ui.form.MultiSelectDialog({
+            new frappe.ui.form.MultiSelectDialog({
                 doctype: "Shade Process",
                 target: frm,
                 setters: {
@@ -47,10 +47,9 @@ frappe.ui.form.on("Quotation", {
                         });
                     }
                     // Hide the dialog after action
-
+                  this.dialog.hide();
                 }
-            });
-
+            }).show();
         }, __('Get Items From'));
     }
 });

@@ -133,6 +133,6 @@ function total_dyeing_overhead_items_amount(frm) {
 function shade_process_item_qty(frm, cdt, cdn) {
     var row = locals[cdt][cdn];
     var fabric_sample_qty = frm.doc.fabric_sample_qty || 0;
-    frappe.model.set_value(cdt, cdn, 'qty', fabric_sample_qty * (row.percentage / 100));
+    frappe.model.set_value(cdt, cdn, 'qty', flt(fabric_sample_qty) * (flt(row.percentage) / 100));
     total_shade_process_item_amount(frm);
 }
