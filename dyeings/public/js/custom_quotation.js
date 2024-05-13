@@ -1,7 +1,6 @@
 frappe.ui.form.on("Quotation", {
     refresh: function (frm) {
         frm.add_custom_button(__('From Shade Process'), function () {
-            // MultiSelectDialog for individual child selection
             new frappe.ui.form.MultiSelectDialog({
                 doctype: "Shade Process",
                 target: frm,
@@ -12,7 +11,7 @@ frappe.ui.form.on("Quotation", {
                 },
                 add_filters_group: 1,
                 date_field: "transaction_date",
-                columns: ["name", "total_cost", "customer", "fabric_type"], // child item columns to be displayed
+                columns: ["name", "total_cost", "customer", "fabric_type"],
                 get_query() {
                     return {
                         filters: {docstatus: ['=', 1]}
@@ -22,14 +21,18 @@ frappe.ui.form.on("Quotation", {
                     if (selections) {
                         frappe.call({
                             method: 'dyeings.dyeings.utils.from_shade_process.from_shade_process',
-                            args: {names: selections}, // Sending list of names
+                            args: {names: selections},
                             callback: function (r) {
                                 if (r.message && r.message.shade_process) {
-                                    let items = frm.doc.items || [];
+                                    // Check for an empty row and use it if present
+                                    let empty_item = frm.doc.items.find(item => !item.shade_process);
                                     r.message.shade_process.forEach(function (i) {
-                                        let existing_item = items.find(item => item.shade_process === i.name);
-                                        if (existing_item) {
-                                            existing_item.qty += 1;
+                                        if (empty_item) { // If empty row exists, use it
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'shade_process', i.name);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'cost_rate', i.total_cost);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'qty', 1);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'fabric_type', i.fabric_type);
+                                            empty_item = null; // Make sure to use the empty row only once
                                         } else {
                                             let entry = frm.add_child("items");
                                             entry.shade_process = i.name;
