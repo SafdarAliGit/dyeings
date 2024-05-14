@@ -1,5 +1,15 @@
 frappe.ui.form.on("Quotation", {
     refresh: function (frm) {
+
+            var btn = frm.add_custom_button(__('Stock Receipt'), function () {
+                // Create a new Stock Entry with pre-defined defaults
+                frappe.new_doc('Stock Entry', {
+                    'stock_entry_type': 'Material Receipt', // Assuming 'Material Receipt' is a valid stock entry type
+                    'customer': frm.doc.customer // Passing customer from current form
+                });
+            });
+            btn.addClass('btn-primary'); // This line changes the button color to primary
+
         frm.add_custom_button(__('From Shade Process'), function () {
             new frappe.ui.form.MultiSelectDialog({
                 doctype: "Shade Process",
