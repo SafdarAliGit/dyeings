@@ -128,7 +128,7 @@ function total_dyeing_overhead_items_amount(frm) {
         frm.doc.total_dyeing_overhead_items_amount += flt(doi[i].amount) || 0
     }
     frm.refresh_field("total_dyeing_overhead_items_amount");
-    frm.set_value("total_cost", frm.doc.total_shade_process_item_amount + frm.doc.total_dyeing_overhead_items_amount);
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
 }
 function shade_process_item_qty(frm, cdt, cdn) {
     var row = locals[cdt][cdn];
