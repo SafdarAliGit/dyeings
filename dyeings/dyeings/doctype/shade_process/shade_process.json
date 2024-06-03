@@ -8,22 +8,26 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "date",
   "customer",
-  "amended_from",
-  "combo_name",
+  "inquiry_cost_sheet_garment",
   "fabric_type",
   "fabric_sample_qty",
+  "column_break_r0huy",
+  "combo_name",
   "content",
   "operation",
+  "shade_type",
+  "finish_item",
   "column_break_sru1m",
-  "date",
-  "ref_shade_no",
+  "amended_from",
   "pantone_no",
   "light_source",
   "service_item",
+  "ref_shade_no",
   "section_break_ounqh",
-  "shade_process_item",
   "total_shade_process_item_amount",
+  "shade_process_item",
   "dyeing_overhead_items",
   "section_break_p8xcj",
   "total_dyeing_overhead_items_amount",
@@ -75,7 +79,7 @@
   {
    "fieldname": "ref_shade_no",
    "fieldtype": "Link",
-   "label": "Ref Shade No ",
+   "label": "Process Route ",
    "options": "Dyeing Overhead"
   },
   {
@@ -150,12 +154,40 @@
   {
    "fieldname": "section_break_p8xcj",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shade_type",
+   "fieldtype": "Select",
+   "label": "Shade Type",
+   "options": "\nDark\nLight\nMedium"
+  },
+  {
+   "fieldname": "inquiry_cost_sheet_garment",
+   "fieldtype": "Link",
+   "label": "Inquiry Cost Sheet Garment",
+   "options": "Inquiry Cost Sheet Garment"
+  },
+  {
+   "fieldname": "column_break_r0huy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "None",
+   "fieldname": "finish_item",
+   "fieldtype": "Data",
+   "label": "Finish Item",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-05-09 20:58:41.613120",
+ "links": [
+  {
+   "link_doctype": "BOM",
+   "link_fieldname": "ref_no"
+  }
+ ],
+ "modified": "2024-06-03 21:43:11.390540",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
