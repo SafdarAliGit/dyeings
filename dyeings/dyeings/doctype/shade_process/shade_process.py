@@ -38,7 +38,7 @@ class ShadeProcess(Document):
 
         try:
             bom.save()
-            bom.submit()
+            # bom.submit()
         except Exception as e:
             frappe.log_error(f"Error occurred during BOM submission: {e}")
 
