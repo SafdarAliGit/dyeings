@@ -91,6 +91,7 @@ frappe.ui.form.on('Shade Process Item', {
     },
     percentage: function (frm, cdt, cdn) {
         shade_process_item_qty(frm, cdt, cdn);
+        total_shade_process_item_amount(frm);
     }
 });
 
@@ -119,6 +120,7 @@ function total_shade_process_item_amount(frm) {
         frm.doc.total_shade_process_item_amount += flt(spi[i].amount) || 0
     }
     frm.refresh_field("total_shade_process_item_amount");
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
 }
 
 function total_dyeing_overhead_items_amount(frm) {

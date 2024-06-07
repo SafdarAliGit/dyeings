@@ -26,8 +26,10 @@
   "service_item",
   "ref_shade_no",
   "section_break_ounqh",
-  "total_shade_process_item_amount",
   "shade_process_item",
+  "section_break_hlkx3",
+  "total_shade_process_item_amount",
+  "section_break_f3ddt",
   "dyeing_overhead_items",
   "section_break_p8xcj",
   "total_dyeing_overhead_items_amount",
@@ -177,6 +179,14 @@
    "fieldtype": "Data",
    "label": "Finish Item",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_hlkx3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_f3ddt",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -187,7 +197,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-03 21:43:11.390540",
+ "modified": "2024-06-07 20:41:29.217325",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
