@@ -13,7 +13,7 @@ class ShadeProcess(Document):
         product_item.item_code = self.finish_item
         product_item.item_name = self.finish_item
         product_item.item_group = 'Products'
-        product_item.stock_uom = 'Nos'
+        product_item.stock_uom = 'Kg'
         product_item.is_stock_item = 1
         product_item.ref_no = self.name
         product_item.ref_doctype = "Shade Process"
