@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-11 13:31:21.905329",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dyeing_process",
+  "estimated_operation_time",
+  "rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "dyeing_process",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Dyeing Process",
+   "options": "Operation"
+  },
+  {
+   "default": "0",
+   "fieldname": "estimated_operation_time",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Est. Operation Time"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-11 13:41:46.896318",
+ "modified_by": "Administrator",
+ "module": "Dyeings",
+ "name": "Process Overhead Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

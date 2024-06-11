@@ -30,7 +30,7 @@
   "section_break_hlkx3",
   "total_shade_process_item_amount",
   "section_break_f3ddt",
-  "dyeing_overhead_items",
+  "process_overhead_items",
   "section_break_p8xcj",
   "total_dyeing_overhead_items_amount",
   "column_break_lgt2t",
@@ -129,12 +129,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "dyeing_overhead_items",
-   "fieldtype": "Table",
-   "label": "Dyeing Overhead Items",
-   "options": "Dyeing Overhead Items"
-  },
-  {
    "default": "0",
    "fieldname": "total_dyeing_overhead_items_amount",
    "fieldtype": "Data",
@@ -187,6 +181,12 @@
   {
    "fieldname": "section_break_f3ddt",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "process_overhead_items",
+   "fieldtype": "Table",
+   "label": "Process Overhead Items",
+   "options": "Process Overhead Items"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -197,7 +197,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-07 20:41:29.217325",
+ "modified": "2024-06-11 13:32:26.515068",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",

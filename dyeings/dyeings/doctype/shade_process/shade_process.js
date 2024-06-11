@@ -94,6 +94,13 @@ frappe.ui.form.on('Shade Process Item', {
         total_shade_process_item_amount(frm);
     }
 });
+frappe.ui.form.on('Process Overhead Items', {
+
+    rate: function (frm, cdt, cdn) {
+        var row = locals[cdt][cdn];
+        total_process_overhead_items_rate(frm);
+    }
+});
 
 function total_overhead_cost(frm) {
     var amount = 0;
@@ -120,6 +127,15 @@ function total_shade_process_item_amount(frm) {
         frm.doc.total_shade_process_item_amount += flt(spi[i].amount) || 0
     }
     frm.refresh_field("total_shade_process_item_amount");
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
+}
+function total_process_overhead_items_rate(frm) {
+    frm.doc.total_dyeing_overhead_items_amount = 0;
+    var spi = frm.doc.process_overhead_items;
+    for (var i in spi) {
+        frm.doc.total_dyeing_overhead_items_amount += flt(spi[i].rate) || 0
+    }
+    frm.refresh_field("total_dyeing_overhead_items_amount");
     frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
 }
 
