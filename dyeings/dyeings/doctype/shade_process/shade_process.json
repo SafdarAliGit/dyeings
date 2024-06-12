@@ -40,8 +40,10 @@
   {
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -97,8 +99,10 @@
   {
    "fieldname": "service_item",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Service item",
-   "options": "Item"
+   "options": "Item",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_ounqh",
@@ -113,13 +117,17 @@
   {
    "fieldname": "fabric_sample_qty",
    "fieldtype": "Float",
-   "label": "Fabric Sample Qty"
+   "in_list_view": 1,
+   "label": "Fabric Sample Qty",
+   "reqd": 1
   },
   {
    "fieldname": "fabric_type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Fabric",
-   "options": "Fabric Type"
+   "options": "Fabric Type",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -197,7 +205,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-11 13:32:26.515068",
+ "modified": "2024-06-12 15:41:37.606230",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
