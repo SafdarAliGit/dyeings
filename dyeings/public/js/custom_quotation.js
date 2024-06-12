@@ -10,7 +10,7 @@ frappe.ui.form.on("Quotation", {
             });
             btn.addClass('btn-primary'); // This line changes the button color to primary
 
-        frm.add_custom_button(__('From Shade Process'), function () {
+        frm.add_custom_button(__('Shade Process'), function () {
             new frappe.ui.form.MultiSelectDialog({
                 doctype: "Shade Process",
                 target: frm,
@@ -39,6 +39,7 @@ frappe.ui.form.on("Quotation", {
                                     r.message.shade_process.forEach(function (i) {
                                         if (empty_item) { // If empty row exists, use it
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'shade_process', i.name);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'item_code', i.service_item);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'cost_rate', i.total_cost);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'qty', 1);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'fabric_type', i.fabric_type);
@@ -46,6 +47,7 @@ frappe.ui.form.on("Quotation", {
                                         } else {
                                             let entry = frm.add_child("items");
                                             entry.shade_process = i.name;
+                                            entry.item_code = i.service_item;
                                             entry.cost_rate = i.total_cost;
                                             entry.qty = 1;
                                             entry.fabric_type = i.fabric_type;

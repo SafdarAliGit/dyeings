@@ -28,12 +28,12 @@ frappe.ui.form.on('Shade Process', {
             };
         });
 
-        if (frm.doc.docstatus == 1) {
-            cur_frm.add_custom_button(__('New Quotation'), function () {
-                    frm.trigger("new_quotation");
-                },
-                __('Create'))
-        }
+        // if (frm.doc.docstatus == 1) {
+        //     cur_frm.add_custom_button(__('New Quotation'), function () {
+        //             frm.trigger("new_quotation");
+        //         },
+        //         __('Create'))
+        // }
 
     },
     new_quotation: function (frm) {
