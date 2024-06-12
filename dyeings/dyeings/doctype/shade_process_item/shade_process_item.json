@@ -40,7 +40,7 @@
    "fieldname": "qty",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Qty"
+   "label": "Qty(Kg)"
   },
   {
    "fieldname": "rate",
@@ -64,7 +64,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-07 21:01:21.750736",
+ "modified": "2024-06-12 16:08:33.990956",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process Item",
