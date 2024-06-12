@@ -38,7 +38,7 @@ frappe.ui.form.on('Shade Process', {
     },
     new_quotation: function (frm) {
         frappe.call({
-            method: 'sayaab.dyeing.custom.new_quotation.new_quotation',
+            method: 'dyeings.dyeings.custom.new_quotation.new_quotation',
             args: {
                 'source_name': frm.doc.name
             },
