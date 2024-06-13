@@ -40,6 +40,7 @@ frappe.ui.form.on("Quotation", {
                                         if (empty_item) { // If empty row exists, use it
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'shade_process', i.name);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'item_code', i.service_item);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'color', i.color);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'finish_item', i.finish_item);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'cost_rate', i.total_cost);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'qty', 1);
@@ -49,6 +50,7 @@ frappe.ui.form.on("Quotation", {
                                             let entry = frm.add_child("items");
                                             entry.shade_process = i.name;
                                             entry.item_code = i.service_item;
+                                            entry.color = i.color;
                                             entry.finish_item = i.finish_item;
                                             entry.cost_rate = i.total_cost;
                                             entry.qty = 1;
