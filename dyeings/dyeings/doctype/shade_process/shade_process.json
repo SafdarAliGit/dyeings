@@ -25,6 +25,7 @@
   "light_source",
   "service_item",
   "ref_shade_no",
+  "color",
   "section_break_ounqh",
   "shade_process_item",
   "section_break_hlkx3",
@@ -195,6 +196,12 @@
    "fieldtype": "Table",
    "label": "Process Overhead Items",
    "options": "Process Overhead Items"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Colors"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -205,7 +212,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-12 15:41:37.606230",
+ "modified": "2024-06-13 19:11:21.021096",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",

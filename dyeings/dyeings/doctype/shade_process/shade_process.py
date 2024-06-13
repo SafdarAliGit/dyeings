@@ -27,6 +27,7 @@ class ShadeProcess(Document):
         bom.quantity = self.fabric_sample_qty
         bom.ref_no = self.name
         bom.ref_doctype = "Shade Process"
+        bom.with_operations = 1
         for i in self.shade_process_item:
             bom.append("items", {
                 "item_code": i.item,
@@ -34,6 +35,11 @@ class ShadeProcess(Document):
                 "uom": i.uom,
                 "rate": i.rate,
                 "amount": i.amount
+            })
+        for j in self.process_overhead_items:
+            bom.append("operations", {
+                "operation": j.dyeing_process,
+                "time_in_mins": j.estimated_operation_time
             })
 
         try:
