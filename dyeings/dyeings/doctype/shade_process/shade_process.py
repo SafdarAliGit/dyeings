@@ -29,7 +29,7 @@ class ShadeProcess(Document):
         bom.ref_doctype = "Shade Process"
         if len(self.process_overhead_items) > 0:
             bom.with_operations = 1
-        for i in self.shade_process_item:
+        for i in self.shade_process_chemicals_item:
             bom.append("items", {
                 "item_code": i.item,
                 "qty": i.qty,

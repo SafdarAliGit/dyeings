@@ -27,10 +27,14 @@
   "ref_shade_no",
   "color",
   "section_break_ounqh",
-  "shade_process_item",
+  "shade_process_chemicals_item",
   "section_break_hlkx3",
-  "total_shade_process_item_amount",
+  "total_shade_process_chemicals_item_amount",
   "section_break_f3ddt",
+  "shade_process_dyes_item",
+  "section_break_kwjq4",
+  "total_shade_process_dyes_item_amount",
+  "section_break_tw10j",
   "process_overhead_items",
   "section_break_p8xcj",
   "total_dyeing_overhead_items_amount",
@@ -110,10 +114,10 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "shade_process_item",
+   "fieldname": "shade_process_chemicals_item",
    "fieldtype": "Table",
-   "label": "Shade Process Item",
-   "options": "Shade Process Item"
+   "label": "Shade Process Chemicals Item",
+   "options": "Shade Process Chemicals Item"
   },
   {
    "fieldname": "fabric_sample_qty",
@@ -129,13 +133,6 @@
    "label": "Fabric",
    "options": "Fabric Type",
    "reqd": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "total_shade_process_item_amount",
-   "fieldtype": "Data",
-   "label": "Dyes & Chemical Cost",
-   "read_only": 1
   },
   {
    "default": "0",
@@ -202,6 +199,34 @@
    "fieldtype": "Link",
    "label": "Color",
    "options": "Colors"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_shade_process_chemicals_item_amount",
+   "fieldtype": "Data",
+   "label": "Chemical Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_tw10j",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shade_process_dyes_item",
+   "fieldtype": "Table",
+   "label": "Shade Process Dyes Item",
+   "options": "Shade Process Dyes Item"
+  },
+  {
+   "fieldname": "section_break_kwjq4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_shade_process_dyes_item_amount",
+   "fieldtype": "Data",
+   "label": "Dyes Cost",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -212,7 +237,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-13 19:11:21.021096",
+ "modified": "2024-06-25 14:31:31.805943",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",

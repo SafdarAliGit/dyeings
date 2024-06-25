@@ -3,21 +3,29 @@
 
 frappe.ui.form.on('Shade Process', {
     refresh: function (frm) {
-            frm.set_query('item', 'shade_process_item', function (doc, cdt, cdn) {
+        frm.set_query('item', 'shade_process_chemicals_item', function (doc, cdt, cdn) {
             var d = locals[cdt][cdn];
             return {
                 filters: [
-                    ["Item", "item_group", "in", ["Dyes", "Chemicals"]]
+                    ["Item", "item_group", "=", "Chemicals"]
                 ]
             };
         }),
-        frm.set_query("fabric", function () {
-            return {
-                filters: [
-                    ["Item", "item_group", "=", "Fabric"]
-                ]
-            };
-        });
+            frm.set_query('item', 'shade_process_dyes_item', function (doc, cdt, cdn) {
+                var d = locals[cdt][cdn];
+                return {
+                    filters: [
+                        ["Item", "item_group", "=", "Dyes"]
+                    ]
+                };
+            }),
+            frm.set_query("fabric", function () {
+                return {
+                    filters: [
+                        ["Item", "item_group", "=", "Fabric"]
+                    ]
+                };
+            });
 
 
         frm.set_query("service_item", function () {
@@ -78,20 +86,36 @@ frappe.ui.form.on('Shade Process', {
 
 });
 
-frappe.ui.form.on('Shade Process Item', {
+frappe.ui.form.on('Shade Process Chemicals Item', {
     qty: function (frm, cdt, cdn) {
         var row = locals[cdt][cdn];
         frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
-        total_shade_process_item_amount(frm);
+        total_shade_process_chemicals_item_amount(frm);
     },
     rate: function (frm, cdt, cdn) {
         var row = locals[cdt][cdn];
         frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
-        total_shade_process_item_amount(frm);
+        total_shade_process_chemicals_item_amount(frm);
     },
     percentage: function (frm, cdt, cdn) {
-        shade_process_item_qty(frm, cdt, cdn);
-        total_shade_process_item_amount(frm);
+        shade_process_chemicals_item_qty(frm, cdt, cdn);
+        total_shade_process_chemicals_item_amount(frm);
+    }
+});
+frappe.ui.form.on('Shade Process Dyes Item', {
+    qty: function (frm, cdt, cdn) {
+        var row = locals[cdt][cdn];
+        frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
+        total_shade_process_dyes_item_amount(frm);
+    },
+    rate: function (frm, cdt, cdn) {
+        var row = locals[cdt][cdn];
+        frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
+        total_shade_process_dyes_item_amount(frm);
+    },
+    percentage: function (frm, cdt, cdn) {
+        shade_process_dyes_item_qty(frm, cdt, cdn);
+        total_shade_process_dyes_item_amount(frm);
     }
 });
 frappe.ui.form.on('Process Overhead Items', {
@@ -120,15 +144,26 @@ frappe.ui.form.on('Shade Process Account', {
     }
 });
 
-function total_shade_process_item_amount(frm) {
-    frm.doc.total_shade_process_item_amount = 0;
-    var spi = frm.doc.shade_process_item;
+function total_shade_process_chemicals_item_amount(frm) {
+    frm.doc.total_shade_process_chemicals_item_amount = 0;
+    var spi = frm.doc.shade_process_chemicals_item;
     for (var i in spi) {
-        frm.doc.total_shade_process_item_amount += flt(spi[i].amount) || 0
+        frm.doc.total_shade_process_chemicals_item_amount += flt(spi[i].amount) || 0
     }
-    frm.refresh_field("total_shade_process_item_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
+    frm.refresh_field("total_shade_process_chemicals_item_amount");
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
 }
+
+function total_shade_process_dyes_item_amount(frm) {
+    frm.doc.total_shade_process_dyes_item_amount = 0;
+    var spi = frm.doc.shade_process_dyes_item;
+    for (var i in spi) {
+        frm.doc.total_shade_process_dyes_item_amount += flt(spi[i].amount) || 0
+    }
+    frm.refresh_field("total_shade_process_dyes_item_amount");
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
+}
+
 function total_process_overhead_items_rate(frm) {
     frm.doc.total_dyeing_overhead_items_amount = 0;
     var spi = frm.doc.process_overhead_items;
@@ -136,7 +171,7 @@ function total_process_overhead_items_rate(frm) {
         frm.doc.total_dyeing_overhead_items_amount += flt(spi[i].rate) || 0
     }
     frm.refresh_field("total_dyeing_overhead_items_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
 }
 
 function total_dyeing_overhead_items_amount(frm) {
@@ -146,11 +181,19 @@ function total_dyeing_overhead_items_amount(frm) {
         frm.doc.total_dyeing_overhead_items_amount += flt(doi[i].amount) || 0
     }
     frm.refresh_field("total_dyeing_overhead_items_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount));
+    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
 }
-function shade_process_item_qty(frm, cdt, cdn) {
+
+function shade_process_chemicals_item_qty(frm, cdt, cdn) {
     var row = locals[cdt][cdn];
     var fabric_sample_qty = frm.doc.fabric_sample_qty || 0;
-    frappe.model.set_value(cdt, cdn, 'qty', (flt(fabric_sample_qty) * (flt(row.percentage) / 100))/1000);
-    total_shade_process_item_amount(frm);
+    frappe.model.set_value(cdt, cdn, 'qty', (flt(fabric_sample_qty) * (flt(row.percentage) / 100)) / 1000);
+    total_shade_process_chemicals_item_amount(frm);
+}
+
+function shade_process_dyes_item_qty(frm, cdt, cdn) {
+    var row = locals[cdt][cdn];
+    var fabric_sample_qty = frm.doc.fabric_sample_qty || 0;
+    frappe.model.set_value(cdt, cdn, 'qty', (flt(fabric_sample_qty) * (flt(row.percentage) / 100)) / 1000);
+    total_shade_process_dyes_item_amount(frm);
 }
