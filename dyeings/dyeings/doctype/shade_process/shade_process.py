@@ -37,6 +37,14 @@ class ShadeProcess(Document):
                 "rate": i.rate,
                 "amount": i.amount
             })
+        for i in self.shade_process_dyes_item:
+            bom.append("items", {
+                "item_code": i.item,
+                "qty": i.qty,
+                "uom": i.uom,
+                "rate": i.rate,
+                "amount": i.amount
+            })
         if len(self.process_overhead_items) > 0:
             for j in self.process_overhead_items:
                 bom.append("operations", {
