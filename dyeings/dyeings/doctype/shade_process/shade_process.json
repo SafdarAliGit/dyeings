@@ -13,12 +13,14 @@
   "inquiry_cost_sheet_garment",
   "fabric_type",
   "fabric_sample_qty",
+  "reason_for_reprocess",
   "column_break_r0huy",
   "combo_name",
   "content",
   "operation",
   "shade_type",
   "finish_item",
+  "material_request",
   "column_break_sru1m",
   "amended_from",
   "pantone_no",
@@ -26,6 +28,7 @@
   "service_item",
   "ref_shade_no",
   "color",
+  "dyed_fabric_name",
   "section_break_ounqh",
   "shade_process_chemicals_item",
   "section_break_hlkx3",
@@ -227,6 +230,26 @@
    "fieldtype": "Data",
    "label": "Dyes Cost",
    "read_only": 1
+  },
+  {
+   "fieldname": "reason_for_reprocess",
+   "fieldtype": "Select",
+   "label": "Reason For Reprocess",
+   "options": "\nRemacting\nResoft\nWidth"
+  },
+  {
+   "fetch_from": "material_request.dyed_fabric_name",
+   "fieldname": "dyed_fabric_name",
+   "fieldtype": "Link",
+   "label": " Dyed Fabric Name",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "material_request",
+   "fieldtype": "Link",
+   "label": "Material Request",
+   "options": "Material Request"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -237,7 +260,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-25 14:31:31.805943",
+ "modified": "2024-06-28 13:05:09.121431",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
