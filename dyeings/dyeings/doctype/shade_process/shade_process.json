@@ -65,17 +65,19 @@
   {
    "fieldname": "combo_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Combo Name"
   },
   {
    "fieldname": "content",
-   "fieldtype": "Data",
-   "label": "Content"
+   "fieldtype": "Link",
+   "label": "Content",
+   "options": "Content"
   },
   {
    "fieldname": "operation",
    "fieldtype": "Link",
-   "label": "Operation",
+   "label": "Process Type",
    "options": "Operation"
   },
   {
@@ -91,6 +93,7 @@
   {
    "fieldname": "ref_shade_no",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Process Route ",
    "options": "Dyeing Overhead"
   },
@@ -101,12 +104,15 @@
   },
   {
    "fieldname": "light_source",
-   "fieldtype": "Data",
-   "label": "Light Source"
+   "fieldtype": "Select",
+   "label": "Light Source",
+   "options": "\nD-65\nTL-84\nCWF\nUV\nOTHERS"
   },
   {
+   "default": "Service Item",
    "fieldname": "service_item",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Service item",
    "options": "Item",
@@ -123,10 +129,12 @@
    "options": "Shade Process Chemicals Item"
   },
   {
+   "default": "1000",
    "fieldname": "fabric_sample_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Fabric Sample Qty",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -164,9 +172,10 @@
    "fieldname": "shade_type",
    "fieldtype": "Select",
    "label": "Shade Type",
-   "options": "\nDark\nLight\nMedium"
+   "options": "\nHalf Bleach\nFull Bleach\nWhite\nWash"
   },
   {
+   "depends_on": "eval:doc.customer == 'Chandna Corporation';",
    "fieldname": "inquiry_cost_sheet_garment",
    "fieldtype": "Link",
    "label": "Inquiry Cost Sheet Garment",
@@ -260,7 +269,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-06-28 13:05:09.121431",
+ "modified": "2024-07-06 17:40:10.081366",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",

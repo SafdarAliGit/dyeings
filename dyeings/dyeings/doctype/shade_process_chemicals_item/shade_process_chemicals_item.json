@@ -40,7 +40,8 @@
    "fieldname": "qty",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Qty(Kg)"
+   "label": "Qty(Kg)",
+   "precision": "5"
   },
   {
    "fieldname": "rate",
@@ -64,7 +65,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-12 16:08:33.990956",
+ "modified": "2024-07-06 17:02:26.968708",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process Chemicals Item",

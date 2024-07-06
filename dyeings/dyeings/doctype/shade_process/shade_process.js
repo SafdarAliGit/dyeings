@@ -132,9 +132,9 @@ function total_overhead_cost(frm) {
     $.each(frm.doc.over_head_cost || [], function (i, d) {
         amount += flt(d.amount) || 0;
     });
-    frm.set_value("overhead_cost", parseFloat(amount).toFixed(3))
+    frm.set_value("overhead_cost", parseFloat(amount).toFixed(2))
     chemical_cost = frm.doc.chemical_cost || 0;
-    frm.set_value("grand_total", (parseFloat(amount) + parseFloat(chemical_cost)).toFixed(3))
+    frm.set_value("grand_total", (parseFloat(amount) + parseFloat(chemical_cost)).toFixed(2))
 }
 
 
@@ -151,7 +151,7 @@ function total_shade_process_chemicals_item_amount(frm) {
         frm.doc.total_shade_process_chemicals_item_amount += flt(spi[i].amount) || 0
     }
     frm.refresh_field("total_shade_process_chemicals_item_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
+    frm.set_value("total_cost", (flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount)).toFixed(2));
 }
 
 function total_shade_process_dyes_item_amount(frm) {
@@ -161,7 +161,7 @@ function total_shade_process_dyes_item_amount(frm) {
         frm.doc.total_shade_process_dyes_item_amount += flt(spi[i].amount) || 0
     }
     frm.refresh_field("total_shade_process_dyes_item_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
+    frm.set_value("total_cost", (flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount)).toFixed(2));
 }
 
 function total_process_overhead_items_rate(frm) {
@@ -171,7 +171,7 @@ function total_process_overhead_items_rate(frm) {
         frm.doc.total_dyeing_overhead_items_amount += flt(spi[i].rate) || 0
     }
     frm.refresh_field("total_dyeing_overhead_items_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
+    frm.set_value("total_cost", (flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount)).toFixed(2));
 }
 
 function total_dyeing_overhead_items_amount(frm) {
@@ -181,7 +181,7 @@ function total_dyeing_overhead_items_amount(frm) {
         frm.doc.total_dyeing_overhead_items_amount += flt(doi[i].amount) || 0
     }
     frm.refresh_field("total_dyeing_overhead_items_amount");
-    frm.set_value("total_cost", flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount));
+    frm.set_value("total_cost", (flt(frm.doc.total_shade_process_chemicals_item_amount) + flt(frm.doc.total_dyeing_overhead_items_amount) + flt(frm.doc.total_shade_process_dyes_item_amount)).toFixed(2));
 }
 
 function shade_process_chemicals_item_qty(frm, cdt, cdn) {
