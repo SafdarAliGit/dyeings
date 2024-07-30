@@ -63,36 +63,42 @@ class ShadeProcess(Document):
             # Fetch the BOM entry based on the reference number
             bom_entry = get_doctype_by_field('BOM', 'ref_no', self.name)
 
-            if bom_entry.docstatus == 0:
-                # Delete the BOM entry if its docstatus is 0
-                bom_entry.delete()
-                frappe.db.commit()
-                # Show success message for deletion
-                frappe.msgprint("BOM entry deleted successfully.")
+            if bom_entry:
+                if bom_entry.docstatus == 0:
+                    # Delete the BOM entry if its docstatus is 0
+                    bom_entry.delete()
+                    frappe.db.commit()
+                    # Show success message for deletion
+                    frappe.msgprint("BOM entry deleted successfully.")
 
-            elif bom_entry.docstatus == 1:
-                # Cancel the BOM entry if its docstatus is 1
-                bom_entry.cancel()
-                frappe.db.commit()
+                elif bom_entry.docstatus == 1:
+                    # Cancel the BOM entry if its docstatus is 1
+                    bom_entry.cancel()
+                    frappe.db.commit()
 
-                # Determine the new name based on whether the BOM entry is amended
-                if bom_entry.amended_from:
-                    new_name = int(bom_entry.name.split("-")[-1]) + 1
+                    # Determine the new name based on whether the BOM entry is amended
+                    if bom_entry.amended_from:
+                        new_name = int(bom_entry.name.split("-")[-1]) + 1
+                    else:
+                        new_name = f"{bom_entry.name}-{1}"
+
+                    # Create a new BOM entry with the new name
+                    make_autoname(new_name, 'BOM')
+
+                    # Show success message for cancellation
+                    frappe.msgprint("BOM entry cancelled successfully.")
+
                 else:
-                    new_name = f"{bom_entry.name}-{1}"
-
-                # Create a new BOM entry with the new name
-                make_autoname(new_name, 'BOM')
-
-                # Show success message for cancellation
-                frappe.msgprint("BOM entry cancelled successfully.")
+                    # Show error message if the BOM entry is neither in the "Draft" nor "Submitted" state
+                    frappe.msgprint("Document is not in a cancellable or deletable state.")
 
             else:
-                # Show error message if the BOM entry is neither in the "Draft" nor "Submitted" state
-                frappe.throw("Document is not in a cancellable or deletable state.")
+                # Show error message if the BOM entry does not exist
+                frappe.msgprint("BOM entry does not exist.")
 
         except Exception as e:
             # Handle any other errors and show an error message
             frappe.throw(f"An error occurred: {str(e)}")
+
 
 
