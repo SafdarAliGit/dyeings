@@ -87,6 +87,29 @@ frappe.ui.form.on('Shade Process', {
 });
 
 frappe.ui.form.on('Shade Process Chemicals Item', {
+    item: function (frm, cdt, cdn) {
+        var row = locals[cdt][cdn];
+        if (row.item) {
+            frappe.call({
+                method: 'dyeings.dyeings.doctype.utils.fetch_valuation_rate',
+
+                args: {
+                    item_code: row.item
+                },
+                callback: function (response) {
+                    if (response.message) {
+                        frappe.model.set_value(cdt, cdn, 'rate', response.message.valuation_rate);
+                    } else {
+                        frappe.msgprint(__('Valuation Rate not found for Item: {0}', [row.item]));
+                    }
+
+
+                }
+            });
+        }
+
+
+    },
     qty: function (frm, cdt, cdn) {
         var row = locals[cdt][cdn];
         frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);
@@ -103,6 +126,29 @@ frappe.ui.form.on('Shade Process Chemicals Item', {
     }
 });
 frappe.ui.form.on('Shade Process Dyes Item', {
+    item: function (frm, cdt, cdn) {
+        var row = locals[cdt][cdn];
+        if (row.item) {
+            frappe.call({
+                method: 'dyeings.dyeings.doctype.utils.fetch_valuation_rate',
+
+                args: {
+                    item_code: row.item
+                },
+                callback: function (response) {
+                    if (response.message) {
+                        frappe.model.set_value(cdt, cdn, 'rate', response.message.valuation_rate);
+                    } else {
+                        frappe.msgprint(__('Valuation Rate not found for Item: {0}', [row.item]));
+                    }
+
+
+                }
+            });
+        }
+
+
+    },
     qty: function (frm, cdt, cdn) {
         var row = locals[cdt][cdn];
         frappe.model.set_value(cdt, cdn, 'amount', row.rate * row.qty);

@@ -44,6 +44,7 @@ def get_account_balance(**args):
         ac_balance['balance'] = 0
         return ac_balance
 
+
 @frappe.whitelist()
 def get_account_type(account_name):
     account = frappe.get_doc("Account", account_name)
@@ -87,3 +88,34 @@ def get_account_type(account_name):
 #             frappe.throw("No detailed rows found")
 #         if source_name.crv_status > 0:
 #             frappe.throw("Journal entry already created")
+@frappe.whitelist()
+def fetch_valuation_rate(**args):
+    item_code = args.get('item_code')
+    data = {}
+    # Construct the SQL query
+    sql_query = """
+        SELECT
+            ROUND(valuation_rate,4) AS valuation_rate
+        FROM
+            `tabStock Ledger Entry`
+        WHERE
+            item_code = %s AND is_cancelled = 0
+        ORDER BY
+            posting_date DESC, posting_time DESC
+        LIMIT 1
+    """
+
+    # Execute the query
+    result = frappe.db.sql(sql_query, (item_code,), as_dict=True)
+
+    # Access the result
+    valuation_rate = None
+    if result:
+        valuation_rate = result[0].get('valuation_rate')
+        data.update(
+            {
+                "valuation_rate": valuation_rate
+            }
+        )
+
+    return data
