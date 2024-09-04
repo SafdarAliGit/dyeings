@@ -77,7 +77,6 @@
   {
    "fieldname": "operation",
    "fieldtype": "Link",
-   "ignore_user_permissions": 1,
    "label": "Process Type",
    "options": "Operation"
   },
@@ -270,7 +269,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2024-09-04 21:13:33.850284",
+ "modified": "2024-09-04 21:22:38.833320",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
