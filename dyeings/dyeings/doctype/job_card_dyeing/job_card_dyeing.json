@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-30 20:34:43.878245",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "party_name",
+  "amended_from",
+  "column_break_ev2vn",
+  "color",
+  "date",
+  "column_break_yfpxt",
+  "party_program_no",
+  "greige_fabric_store",
+  "column_break_knbnf",
+  "chemicals_store",
+  "greige_fabric_detail_section",
+  "greige_fabric_detail",
+  "section_break_v61ej",
+  "total_fabric_issue",
+  "column_break_abvdj",
+  "qty_total",
+  "raw_item_chamicals_section",
+  "shade_process_no",
+  "section_break_hm91j",
+  "raw_item_chamicals",
+  "raw_item_dyes_section",
+  "raw_item_dyes",
+  "toping_section",
+  "toping",
+  "section_break_k3sxa",
+  "total_amount",
+  "column_break_takpw",
+  "rate_per_kg",
+  "operation_route_section",
+  "operation_route"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "JCD-.YYYY.-"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Job Card Dyeing",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Link",
+   "label": "Party Name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "fieldname": "column_break_ev2vn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yfpxt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "party_program_no",
+   "fieldtype": "Data",
+   "label": "Party program No"
+  },
+  {
+   "fieldname": "column_break_knbnf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "greige_fabric_store",
+   "fieldtype": "Link",
+   "label": "Greige Fabric Store",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "chemicals_store",
+   "fieldtype": "Link",
+   "label": "Chemicals Store",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "greige_fabric_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Greige Fabric Detail"
+  },
+  {
+   "fieldname": "greige_fabric_detail",
+   "fieldtype": "Table",
+   "label": "Greige Fabric Detail",
+   "options": "Greige Fabric Detail"
+  },
+  {
+   "fieldname": "raw_item_chamicals_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Item Chamicals"
+  },
+  {
+   "fieldname": "raw_item_chamicals",
+   "fieldtype": "Table",
+   "label": "Raw Item Chamicals",
+   "options": "Raw Item Chamicals"
+  },
+  {
+   "fieldname": "raw_item_dyes_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Item Dyes"
+  },
+  {
+   "fieldname": "raw_item_dyes",
+   "fieldtype": "Table",
+   "label": "Raw Item Dyes",
+   "options": "Raw Item Dyes"
+  },
+  {
+   "fieldname": "toping_section",
+   "fieldtype": "Section Break",
+   "label": "Toping"
+  },
+  {
+   "fieldname": "toping",
+   "fieldtype": "Table",
+   "label": "Toping",
+   "options": "Toping"
+  },
+  {
+   "fieldname": "operation_route_section",
+   "fieldtype": "Section Break",
+   "label": "Operation Route"
+  },
+  {
+   "fieldname": "operation_route",
+   "fieldtype": "Table",
+   "label": "Operation Route",
+   "options": "Operation Route"
+  },
+  {
+   "fieldname": "section_break_v61ej",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_fabric_issue",
+   "fieldtype": "Float",
+   "label": "Total fabric Issue",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_abvdj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "qty_total",
+   "fieldtype": "Float",
+   "label": "Qty Total",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shade_process_no",
+   "fieldtype": "Link",
+   "label": "Shade Process No",
+   "options": "Shade Process"
+  },
+  {
+   "fieldname": "section_break_hm91j",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_k3sxa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_takpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "rate_per_kg",
+   "fieldtype": "Currency",
+   "label": "Rate per KG",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-30 20:56:30.857914",
+ "modified_by": "Administrator",
+ "module": "Dyeings",
+ "name": "Job Card Dyeing",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
