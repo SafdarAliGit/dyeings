@@ -75,7 +75,7 @@
    "fieldname": "color",
    "fieldtype": "Link",
    "label": "Color",
-   "options": "Color"
+   "options": "Colors"
   },
   {
    "fieldname": "column_break_ev2vn",
@@ -243,7 +243,7 @@
    "link_fieldname": "job_card_dyeing"
   }
  ],
- "modified": "2025-09-01 20:38:18.401969",
+ "modified": "2025-09-01 21:03:16.794769",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
