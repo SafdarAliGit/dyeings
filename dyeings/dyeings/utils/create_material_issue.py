@@ -46,7 +46,8 @@ def create_material_issue(docname):
             "s_warehouse": parent_doc.greige_fabric_store,
             "t_warehouse": parent_doc.production_warehouse,
             "batch_no": row.lot,
-            "allow_zero_valuation_rate": 1
+            "allow_zero_valuation_rate": 1,
+            "use_serial_batch_fields": 1
         })
 
     se.insert(ignore_permissions=True)
