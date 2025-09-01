@@ -122,7 +122,7 @@ frappe.ui.form.on('Greige Fabric Detail', {
 }
 
 function fabric_issue(frm){
-    if (frm.doc.docstatus === 1) {  // Only after submit
+    // if (frm.doc.docstatus === 1) {  // Only after submit
      
             frappe.call({
                 method: "dyeings.dyeings.utils.create_material_issue.create_material_issue",
@@ -136,5 +136,5 @@ function fabric_issue(frm){
                 }
             });
        
-    }
+    // }
 }
