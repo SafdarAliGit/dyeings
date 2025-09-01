@@ -1,6 +1,7 @@
 import frappe
 from frappe.utils import flt
 
+
 @frappe.whitelist()
 def create_material_issue(docname):
     """Create Stock Entry (Material Transfer) from greige_fabric_detail child table"""
@@ -38,7 +39,6 @@ def create_material_issue(docname):
             continue
 
         item = frappe.get_doc("Item", row.fabric_item)
-
         se.append("items", {
             "item_code": row.fabric_item,
             "qty": flt(row.qty_issue),
