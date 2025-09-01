@@ -96,7 +96,7 @@ frappe.ui.form.on('Greige Fabric Detail', {
                         qty_per_kg: item.qty,
                         rate: item.rate,
 						qty_required: item.qty * frm.doc.total_fabric_issue || 0,
-                        amount: item.amount
+                        amount: item.rate * item.qty * frm.doc.total_fabric_issue || 0
                     });
                 });
                 frm.refresh_field("raw_item_chamicals");
@@ -111,8 +111,9 @@ frappe.ui.form.on('Greige Fabric Detail', {
                         percentage: item.percentage,
                         uom: item.uom,
                         qty_per_kg: item.qty,
+                        qty: item.qty * frm.doc.total_fabric_issue || 0,
                         rate: item.rate,
-                        amount: item.amount
+                        amount: item.rate * item.qty * frm.doc.total_fabric_issue || 0
                     });
                 });
                 frm.refresh_field("raw_item_dyes");
