@@ -44,7 +44,7 @@ def create_material_issue(docname):
             "qty": flt(row.qty_issue),
             "uom": item.stock_uom,
             "s_warehouse": parent_doc.greige_fabric_store,
-            "t_warehouse": "",
+            "t_warehouse": parent_doc.production_warehouse,
             "batch_no": row.lot,
             "allow_zero_valuation_rate": 1
         })
