@@ -9,16 +9,19 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "party_name",
+  "greige_fabric_store",
   "amended_from",
   "column_break_ev2vn",
-  "color",
-  "date",
-  "column_break_yfpxt",
-  "party_program_no",
-  "greige_fabric_store",
-  "column_break_knbnf",
+  "party_name",
   "chemicals_store",
+  "column_break_yfpxt",
+  "color",
+  "production_warehouse",
+  "column_break_knbnf",
+  "party_program_no",
+  "finish_warehouse",
+  "column_break_us70w",
+  "date",
   "greige_fabric_detail_section",
   "greige_fabric_detail",
   "section_break_v61ej",
@@ -213,12 +216,34 @@
    "fieldtype": "Currency",
    "label": "Rate per KG",
    "read_only": 1
+  },
+  {
+   "fieldname": "production_warehouse",
+   "fieldtype": "Link",
+   "label": "Production Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_us70w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "finish_warehouse",
+   "fieldtype": "Link",
+   "label": "Finish Warehouse",
+   "options": "Warehouse"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-08-30 20:56:30.857914",
+ "links": [
+  {
+   "group": "Fabric Stock Entry",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "job_card_dyeing"
+  }
+ ],
+ "modified": "2025-09-01 20:38:18.401969",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

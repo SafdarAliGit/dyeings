@@ -27,11 +27,14 @@
    "options": "Batch"
   },
   {
+   "default": "0",
+   "fetch_from": "lot.batch_qty",
    "fieldname": "qty_available",
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Qty Available",
-   "precision": "4"
+   "precision": "4",
+   "read_only": 1
   },
   {
    "fieldname": "qty_issue",
@@ -44,7 +47,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-30 20:03:14.560161",
+ "modified": "2025-09-01 19:10:15.967095",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Greige Fabric Detail",
