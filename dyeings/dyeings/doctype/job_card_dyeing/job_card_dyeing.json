@@ -236,8 +236,15 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-09-01 21:07:03.155373",
+ "links": [
+  {
+   "custom": 1,
+   "group": "Chemicals & Dyes Material Request",
+   "link_doctype": "Material Request",
+   "link_fieldname": "job_card_dyeing"
+  }
+ ],
+ "modified": "2025-09-02 17:01:18.149541",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
