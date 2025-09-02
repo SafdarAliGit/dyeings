@@ -11,28 +11,28 @@ def create_material_issue(docname):
         frappe.throw("No Fabric Details found to create Stock Entry.")
 
     # 🔎 Check if a Stock Entry already exists (not cancelled, not Material Transfer)
-    # existing_se = frappe.db.get_value(
-    #     "Stock Entry",
-    #     {
-    #         "job_card_dyeing": parent_doc.name,
-    #         "docstatus": ("!=", 2),
-    #         "stock_entry_type": "Material Transfer"  
-    #     },
-    #     ["name"],
-    #     as_dict=True
-    # )
+    existing_se = frappe.db.get_value(
+        "Stock Entry",
+        {
+            "custom_job_card_dyeing": parent_doc.name,
+            "docstatus": ("!=", 2),
+            "stock_entry_type": "Material Transfer"  
+        },
+        ["name"],
+        as_dict=True
+    )
 
-    # if existing_se:
-    #     frappe.throw(
-    #             f"Stock Entry {existing_se.name} already exists with type {existing_se.stock_entry_type}. "
-    #         )
+    if existing_se:
+        frappe.throw(
+                f"Stock Entry {existing_se.name} already exists with type {existing_se.stock_entry_type}. "
+            )
 
     # 🚀 Create new Stock Entry
     se = frappe.new_doc("Stock Entry")
     se.stock_entry_type = "Material Transfer"
     se.posting_date = parent_doc.date or frappe.utils.today()
     se.posting_time = frappe.utils.nowtime()
-    se.job_card_dyeing = parent_doc.name  # custom link field
+    se.custom_job_card_dyeing = parent_doc.name  # custom link field
 
     for row in parent_doc.greige_fabric_detail:
         if not row.fabric_item:
