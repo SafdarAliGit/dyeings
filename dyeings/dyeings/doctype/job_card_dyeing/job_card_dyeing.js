@@ -17,7 +17,7 @@ frappe.ui.form.on('Job Card Dyeing', {
         }).removeClass("btn-default").addClass("btn btn-xs btn-orange");
 
 		frm.add_custom_button(__('Finish'), function () {
-            frm.trigger("finish_job");
+            create_finish_stock_entry(frm);
         }).removeClass("btn-default").addClass("btn btn-xs btn-green");
 
         frm.set_query("fabric_item", "greige_fabric_detail", function () {
@@ -158,3 +158,22 @@ frappe.call({
     }
 });
 }
+
+function create_finish_stock_entry(frm){
+    frappe.call({
+        method: "dyeings.dyeings.utils.finish_stock_entry.finish_stock_entry",
+        args: {
+            job_card_name: frm.doc.name
+        },
+        callback: function(r) {
+            if (!r.exc) {
+                frappe.msgprint({
+                    title: __('Success'),
+                    message: __('Stock Entry created: <b>' + r.message + '</b>'),
+                    indicator: 'green'
+                });
+                
+            }
+        }
+    });
+    }
