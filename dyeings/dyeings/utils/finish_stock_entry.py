@@ -11,7 +11,7 @@ def finish_stock_entry(job_card_name):
     existing_se = frappe.db.get_value(
     "Stock Entry",
     {
-        "job_card_dyeing_finish": job_card.name,
+        "custom_job_card_dyeing_finish": job_card.name,
         "docstatus": ("!=", 2),
         "stock_entry_type": "Manufacture"  
     },
@@ -30,7 +30,7 @@ def finish_stock_entry(job_card_name):
     se.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
     se.posting_date = job_card.date or frappe.utils.today()
     se.posting_time = frappe.utils.nowtime()
-    se.job_card_dyeing_finish = job_card.name
+    se.custom_job_card_dyeing_finish = job_card.name
 
     # --- Pull items from raw_item_chamicals child table ---
     for item in job_card.raw_item_chamicals:
