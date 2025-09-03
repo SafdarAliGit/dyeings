@@ -83,4 +83,4 @@ def finish_stock_entry(job_card_name):
     # Optional: submit if required
     se.submit()
 
-    return mr.name
+    return se.name
