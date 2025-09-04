@@ -118,13 +118,12 @@ app_include_css = "/assets/dyeings/css/job_card_dyeing.css"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Stock Entry": {
+		"on_update": "dyeings.dyeings.utils.stock_entry.custom_on_update_stock_entry",
+		
+	}
+}
 
 # Scheduled Tasks
 # ---------------
