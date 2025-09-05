@@ -31,8 +31,16 @@ frappe.ui.form.on('Job Card Dyeing', {
             let row = locals[cdt][cdn];
             return {
                 filters: {
-                    "item": row.fabric_item
+                    "customer": frm.doc.party_name
                 }
+            };
+        });
+        frm.set_query("shade_process_no", function () {
+            return {
+                filters: [
+                    ["customer", "=", frm.doc.party_name],
+                    ["color", "=", frm.doc.color]
+                ]
             };
         });
     },
@@ -50,6 +58,17 @@ frappe.ui.form.on('Greige Fabric Detail', {
 	}
   });
   
+  frappe.ui.form.on('Raw Item Chamicals', {
+	percentage: function(frm, cdt, cdn) {
+        apply_percentage_on_chemicals(frm, cdt, cdn);
+	}
+  });
+
+  frappe.ui.form.on('Raw Item Dyes', {
+	percentage: function(frm, cdt, cdn) {
+        apply_percentage_on_dyes(frm, cdt, cdn);
+	}
+  });
 
   function calculate_totals(frm, cdt, cdn, field_to_set,child_table_fieldname, fieldname, precision = 4) {
 	const row = locals[cdt][cdn];
@@ -177,3 +196,21 @@ function create_finish_stock_entry(frm){
         }
     });
     }
+
+function apply_percentage_on_chemicals(frm, cdt, cdn){
+    var row = locals[cdt][cdn];
+    var percentage = row.percentage;
+    var qty_per_kg = 1000 * (flt(percentage) / 100) / 1000;
+    frappe.model.set_value(cdt, cdn, 'qty_per_kg', qty_per_kg);
+    frappe.model.set_value(cdt, cdn, 'qty_required', flt(qty_per_kg) * flt(frm.doc.total_fabric_issue));
+    frappe.model.set_value(cdt, cdn, 'amount', row.rate * flt(row.qty_required));
+}
+
+function apply_percentage_on_dyes(frm, cdt, cdn){
+    var row = locals[cdt][cdn];
+    var percentage = row.percentage;
+    var qty_per_kg = 1000 * (flt(percentage) / 100) / 1000;
+    frappe.model.set_value(cdt, cdn, 'qty_per_kg', qty_per_kg);
+    frappe.model.set_value(cdt, cdn, 'qty', flt(qty_per_kg) * flt(frm.doc.total_fabric_issue));
+    frappe.model.set_value(cdt, cdn, 'amount', row.rate * flt(row.qty));
+}
