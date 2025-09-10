@@ -46,6 +46,9 @@ frappe.ui.form.on('Job Card Dyeing', {
     },
 	shade_process_no:function(frm){
 		fetch_chemicals_and_dyes(frm);
+	},
+    operation:function(frm){
+		fetch_sub_operations(frm);
 	}
 });
 
@@ -213,4 +216,27 @@ function apply_percentage_on_dyes(frm, cdt, cdn){
     frappe.model.set_value(cdt, cdn, 'qty_per_kg', qty_per_kg);
     frappe.model.set_value(cdt, cdn, 'qty', flt(qty_per_kg) * flt(frm.doc.total_fabric_issue));
     frappe.model.set_value(cdt, cdn, 'amount', row.rate * flt(row.qty));
+}
+
+function fetch_sub_operations(frm){
+    const operation = frm.doc.operation;
+    if (!operation) return;
+
+    frappe.call({
+        method: "dyeings.dyeings.utils.fetch_sub_operations.fetch_sub_operations",
+        args: { 
+            operation: operation 
+        },
+        callback: function(r) {
+            if (r.message && r.message.operations) {
+                frm.clear_table("operation_route");
+                r.message.operations.forEach(row => {
+                    let child = frm.add_child('operation_route');
+                    child.operation = row.operation;
+                });
+                
+                frm.refresh_field("operation_route");
+            }
+        }
+    });
 }
