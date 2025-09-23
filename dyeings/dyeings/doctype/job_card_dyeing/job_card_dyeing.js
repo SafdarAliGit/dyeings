@@ -31,14 +31,14 @@ frappe.ui.form.on('Job Card Dyeing', {
             let row = locals[cdt][cdn];
             return {
                 filters: {
-                    "customer": frm.doc.party_name
+                    "custom_customer": frm.doc.party_name
                 }
             };
         });
         frm.set_query("shade_process_no", function () {
             return {
                 filters: [
-                    ["customer", "=", frm.doc.party_name],
+                    ["custom_customer", "=", frm.doc.party_name],
                     ["color", "=", frm.doc.color]
                 ]
             };

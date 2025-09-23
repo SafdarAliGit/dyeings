@@ -9,7 +9,8 @@
   "lot",
   "fabric_item",
   "qty_available",
-  "qty_issue"
+  "qty_issue",
+  "customer_challan_no"
  ],
  "fields": [
   {
@@ -44,12 +45,19 @@
    "in_list_view": 1,
    "label": "Qty Issue",
    "precision": "4"
+  },
+  {
+   "fetch_from": "lot.custom_customer_challan_no",
+   "fieldname": "customer_challan_no",
+   "fieldtype": "Data",
+   "label": "Customer Challan No",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-05 18:29:09.647509",
+ "modified": "2025-09-23 18:56:31.688806",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Greige Fabric Detail",
