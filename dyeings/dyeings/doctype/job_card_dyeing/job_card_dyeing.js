@@ -38,7 +38,7 @@ frappe.ui.form.on('Job Card Dyeing', {
         frm.set_query("shade_process_no", function () {
             return {
                 filters: [
-                    ["custom_customer", "=", frm.doc.party_name],
+                    ["customer", "=", frm.doc.party_name],
                     ["color", "=", frm.doc.color]
                 ]
             };
