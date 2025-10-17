@@ -190,6 +190,7 @@
    "default": "None",
    "fieldname": "finish_item",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Finish Item",
    "read_only": 1
   },
@@ -277,7 +278,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2025-10-17 17:15:12.044765",
+ "modified": "2025-10-17 18:05:37.034454",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
