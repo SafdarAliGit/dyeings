@@ -9,18 +9,18 @@ class ShadeProcess(Document):
         self.finish_item = f"{self.fabric_type} - {self.name}"
 
     def on_submit(self):
-        product_item = frappe.new_doc("Item")
-        product_item.item_code = self.finish_item
-        product_item.item_name = self.finish_item
-        product_item.item_group = 'Products'
-        product_item.stock_uom = 'Kg'
-        product_item.is_stock_item = 1
-        product_item.ref_no = self.name
-        product_item.ref_doctype = "Shade Process"
-        try:
-            product_item.save()
-        except Exception as e:
-            frappe.throw(frappe._("Error saving Item: {0}".format(str(e))))
+        # product_item = frappe.new_doc("Item")
+        # product_item.item_code = self.finish_item
+        # product_item.item_name = self.finish_item
+        # product_item.item_group = 'Products'
+        # product_item.stock_uom = 'Kg'
+        # product_item.is_stock_item = 1
+        # product_item.ref_no = self.name
+        # product_item.ref_doctype = "Shade Process"
+        # try:
+        #     product_item.save()
+        # except Exception as e:
+        #     frappe.throw(frappe._("Error saving Item: {0}".format(str(e))))
 
         bom = frappe.new_doc("BOM")
         bom.item = self.finish_item
