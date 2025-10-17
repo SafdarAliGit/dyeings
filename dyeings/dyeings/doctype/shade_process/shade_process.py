@@ -5,8 +5,8 @@ from frappe.model.naming import make_autoname
 
 
 class ShadeProcess(Document):
-    def before_save(self):
-        self.finish_item = f"{self.fabric_type} - {self.name}"
+    # def before_save(self):
+    #     self.finish_item = f"{self.fabric_type} - {self.name}"
 
     def on_submit(self):
         # product_item = frappe.new_doc("Item")
