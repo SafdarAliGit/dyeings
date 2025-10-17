@@ -34,6 +34,7 @@ frappe.ui.form.on("Quotation", {
                             args: {names: selections},
                             callback: function (r) {
                                 if (r.message && r.message.shade_process) {
+                                    frm.clear_table('items');
                                     // Check for an empty row and use it if present
                                     let empty_item = frm.doc.items.find(item => !item.shade_process);
                                     r.message.shade_process.forEach(function (i) {
