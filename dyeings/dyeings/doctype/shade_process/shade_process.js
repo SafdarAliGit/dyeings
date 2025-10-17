@@ -19,7 +19,7 @@ frappe.ui.form.on('Shade Process', {
                     ]
                 };
             }),
-            frm.set_query("fabric", function () {
+            frm.set_query("fabric_type", function () {
                 return {
                     filters: [
                         ["Item", "item_group", "=", "Fabric"]

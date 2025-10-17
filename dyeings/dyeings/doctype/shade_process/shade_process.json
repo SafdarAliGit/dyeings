@@ -143,7 +143,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Fabric",
-   "options": "Fabric Type",
+   "options": "Item",
    "reqd": 1
   },
   {
@@ -278,7 +278,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2025-10-17 18:05:37.034454",
+ "modified": "2025-10-17 18:46:50.232025",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
