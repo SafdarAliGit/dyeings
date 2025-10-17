@@ -47,6 +47,8 @@ frappe.ui.form.on("Quotation", {
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'qty', 1);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'fabric_type', i.service_item);
                                             frappe.model.set_value(empty_item.doctype, empty_item.name, 'finish_type', i.finish_type);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'item_name', i.item_name);
+                                            frappe.model.set_value(empty_item.doctype, empty_item.name, 'uom', i.stock_uom);
                                             empty_item = null; // Make sure to use the empty row only once
                                         } else {
                                             let entry = frm.add_child("items");
@@ -58,6 +60,8 @@ frappe.ui.form.on("Quotation", {
                                             entry.qty = 1;
                                             entry.fabric_type = i.service_item;
                                             entry.finish_type = i.finish_type;
+                                            entry.item_name = i.item_name;
+                                            entry.uom = i.stock_uom;
                                         }
                                     });
                                     frm.refresh_field('items');
