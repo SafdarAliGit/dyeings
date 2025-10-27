@@ -17,9 +17,11 @@
   "column_break_yfpxt",
   "color",
   "production_warehouse",
+  "column_break_tn7g",
+  "finish_type",
+  "finish_warehouse",
   "column_break_knbnf",
   "party_program_no",
-  "finish_warehouse",
   "column_break_us70w",
   "date",
   "greige_fabric_detail_section",
@@ -244,12 +246,22 @@
   {
    "fieldname": "section_break_iftg",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "finish_type",
+   "fieldtype": "Select",
+   "label": "Finish Type",
+   "options": "\nOpen Width\nTube Finish"
+  },
+  {
+   "fieldname": "column_break_tn7g",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-10 16:02:33.760263",
+ "modified": "2025-10-27 18:50:37.938282",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
