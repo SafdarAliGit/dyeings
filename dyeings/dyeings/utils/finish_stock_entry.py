@@ -13,7 +13,7 @@ def finish_stock_entry(job_card_name):
     {
         "custom_job_card_dyeing_finish": job_card.name,
         "docstatus": ("!=", 2),
-        "stock_entry_type": "Manufacture"  
+        "stock_entry_type": "Repack"  
     },
     ["name"],
     as_dict=True
