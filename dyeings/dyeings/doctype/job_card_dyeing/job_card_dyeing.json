@@ -218,8 +218,10 @@
    "default": "0",
    "fieldname": "rate_per_kg",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Rate per KG",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "production_warehouse",
@@ -261,7 +263,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-27 18:50:37.938282",
+ "modified": "2025-11-27 21:03:50.932820",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
