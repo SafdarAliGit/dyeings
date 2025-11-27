@@ -74,7 +74,9 @@ def finish_stock_entry(job_card_name):
             "t_warehouse": job_card.finish_warehouse,
             "batch_no": row.lot,
             "use_serial_batch_fields": 1,
-            "is_finished_item": 1
+            "is_finished_item": 1,
+            "set_basic_rate_manually": 1,
+            "basic_rate": job_card.rate_per_kg
         })
 
     # Insert into DB
