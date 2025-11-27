@@ -262,8 +262,14 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-11-27 21:03:50.932820",
+ "links": [
+  {
+   "group": "Finish Stock Entry",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "custom_job_card_dyeing_finish"
+  }
+ ],
+ "modified": "2025-11-27 21:52:26.158185",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
