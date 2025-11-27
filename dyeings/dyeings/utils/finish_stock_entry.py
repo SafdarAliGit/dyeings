@@ -76,7 +76,8 @@ def finish_stock_entry(job_card_name):
             "use_serial_batch_fields": 1,
             "is_finished_item": 1,
             "set_basic_rate_manually": 1,
-            "basic_rate": job_card.rate_per_kg
+            "basic_rate": job_card.rate_per_kg,
+            "basic_amount": job_card.rate_per_kg * flt(row.qty_issue),
         })
 
     # Insert into DB
