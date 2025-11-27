@@ -25,7 +25,7 @@ def finish_stock_entry(job_card_name):
             )
     # Create new Material Request doc
     se = frappe.new_doc("Stock Entry")
-    se.stock_entry_type = "Manufacture"
+    se.stock_entry_type = "Repack"
     se.set_posting_time = 1
     se.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
     se.posting_date = job_card.date or frappe.utils.today()
