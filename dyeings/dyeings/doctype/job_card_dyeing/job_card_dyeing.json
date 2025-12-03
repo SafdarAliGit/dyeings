@@ -22,8 +22,10 @@
   "finish_warehouse",
   "column_break_knbnf",
   "party_program_no",
+  "machine_no",
   "column_break_us70w",
   "date",
+  "remarks",
   "greige_fabric_detail_section",
   "greige_fabric_detail",
   "section_break_v61ej",
@@ -258,6 +260,17 @@
   {
    "fieldname": "column_break_tn7g",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "machine_no",
+   "fieldtype": "Link",
+   "label": "Machine No ",
+   "options": "Machine"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -269,7 +282,7 @@
    "link_fieldname": "custom_job_card_dyeing_finish"
   }
  ],
- "modified": "2025-11-27 21:52:26.158185",
+ "modified": "2025-12-03 19:42:23.983357",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

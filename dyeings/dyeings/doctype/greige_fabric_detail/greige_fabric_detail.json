@@ -10,7 +10,14 @@
   "fabric_item",
   "qty_available",
   "qty_issue",
-  "customer_challan_no"
+  "customer_challan_no",
+  "rolls",
+  "yarn_count",
+  "dia",
+  "guage",
+  "gsm",
+  "fdia",
+  "ggsm"
  ],
  "fields": [
   {
@@ -50,14 +57,57 @@
    "fetch_from": "lot.custom_customer_challan_no",
    "fieldname": "customer_challan_no",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Customer Challan No",
    "read_only": 1
+  },
+  {
+   "fieldname": "rolls",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rolls"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Yarn Count"
+  },
+  {
+   "fieldname": "dia",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Dia"
+  },
+  {
+   "fieldname": "guage",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Guage"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GSM"
+  },
+  {
+   "fieldname": "fdia",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "F.Dia"
+  },
+  {
+   "fieldname": "ggsm",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "G.GSM"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-23 18:56:31.688806",
+ "modified": "2025-12-03 19:50:42.834782",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Greige Fabric Detail",
