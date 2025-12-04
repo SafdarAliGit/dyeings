@@ -139,8 +139,8 @@
    "collapsible": 0,
    "collapsible_depends_on": null,
    "columns": 0,
-   "creation": "2025-12-04 17:49:17.450053",
-   "default": "0",
+   "creation": "2025-12-04 19:46:16.309187",
+   "default": "",
    "depends_on": null,
    "description": null,
    "docstatus": 0,
@@ -167,7 +167,7 @@
    "length": 0,
    "link_filters": null,
    "mandatory_depends_on": null,
-   "modified": "2025-12-04 17:49:17.450053",
+   "modified": "2025-12-04 19:46:16.309187",
    "modified_by": "Administrator",
    "module": null,
    "name": "Batch-custom_received_qty",
@@ -202,7 +202,7 @@
    "_comments": null,
    "_liked_by": null,
    "_user_tags": null,
-   "creation": "2025-12-04 17:49:17.067460",
+   "creation": "2025-12-04 20:00:15.124866",
    "default_value": null,
    "doc_type": "Batch",
    "docstatus": 0,
@@ -210,7 +210,7 @@
    "field_name": null,
    "idx": 0,
    "is_system_generated": 0,
-   "modified": "2025-12-04 17:49:17.067460",
+   "modified": "2025-12-04 20:00:15.124866",
    "modified_by": "Administrator",
    "module": null,
    "name": "Batch-main-field_order",
@@ -218,7 +218,7 @@
    "property": "field_order",
    "property_type": "Data",
    "row_name": null,
-   "value": "[\"sb_disabled\", \"disabled\", \"column_break_24\", \"use_batchwise_valuation\", \"sb_batch\", \"batch_id\", \"item\", \"item_name\", \"image\", \"parent_batch\", \"manufacturing_date\", \"column_break_3\", \"batch_qty\", null, \"stock_uom\", \"expiry_date\", \"source\", \"supplier\", \"column_break_9\", \"reference_doctype\", \"reference_name\", \"section_break_7\", \"description\", \"manufacturing_section\", \"qty_to_produce\", \"column_break_23\", \"produced_qty\", \"custom_customer\", \"custom_customer_challan_no\"]"
+   "value": "[\"sb_disabled\", \"disabled\", \"column_break_24\", \"use_batchwise_valuation\", \"sb_batch\", \"batch_id\", \"item\", \"item_name\", \"image\", \"parent_batch\", \"manufacturing_date\", \"column_break_3\", \"batch_qty\", \"custom_received_qty\", \"stock_uom\", \"expiry_date\", \"source\", \"supplier\", \"column_break_9\", \"reference_doctype\", \"reference_name\", \"section_break_7\", \"description\", \"manufacturing_section\", \"qty_to_produce\", \"column_break_23\", \"produced_qty\", \"custom_customer\", \"custom_customer_challan_no\"]"
   }
  ],
  "sync_on_migrate": 1

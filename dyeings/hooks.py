@@ -120,7 +120,7 @@ app_include_css = "/assets/dyeings/css/job_card_dyeing.css"
 
 doc_events = {
 	"Stock Entry": {
-		"on_update": "dyeings.dyeings.utils.stock_entry.custom_on_update_stock_entry",
+		"on_submit": "dyeings.dyeings.utils.stock_entry.custom_on_update_stock_entry",
 		
 	}
 }
