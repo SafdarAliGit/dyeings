@@ -10,6 +10,7 @@ def custom_on_update_stock_entry(doc, method):
 
     for item in doc.get("items") or []:
         batch_no = item.get("batch_no")
+        qty = item.get("qty")
         if not batch_no:
             continue
 
@@ -20,6 +21,7 @@ def custom_on_update_stock_entry(doc, method):
 
         batch_doc.customer = customer
         batch_doc.customer_challan_no = challan_no
+        batch_doc.custom_received_qty = qty
         batch_doc.save()
     
     # Optional: push updates
