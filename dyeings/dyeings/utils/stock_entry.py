@@ -22,7 +22,7 @@ def custom_on_update_stock_entry(doc, method):
         batch_doc.customer = customer
         batch_doc.customer_challan_no = challan_no
         batch_doc.custom_received_qty = qty
-        batch_doc.save()
+        batch_doc.save(ignore_permissions=True)
     
     # Optional: push updates
-    frappe.db.commit()
+    # frappe.db.commit()
