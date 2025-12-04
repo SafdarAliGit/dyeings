@@ -7,9 +7,13 @@ frappe.ui.form.on("Delivery Note", {
 
 frappe.ui.form.on("Delivery Note Item", {
      qty: function (frm, cdt, cdn) {
+        alert("qty changed");
+        console.log("qty changed", frm, cdt, cdn);
         waste_qty_and_waste_percent(frm, cdt, cdn);
     },
     batch_no: function (frm, cdt, cdn) {
+        alert("batch_no changed");
+        console.log("batch_no changed", frm, cdt, cdn);
         waste_qty_and_waste_percent(frm, cdt, cdn);
     }
 });
