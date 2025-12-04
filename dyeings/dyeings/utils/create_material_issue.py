@@ -52,5 +52,16 @@ def create_material_issue(docname):
 
     se.insert(ignore_permissions=True)
     se.submit()
+    
+    if parent_doc.greige_fabric_detail:
+        for item in parent_doc.greige_fabric_detail:
+            if item.lot:
+                try:
+                    batch_doc = frappe.get_doc("Batch", item.lot)
+                    batch_doc.custom_job_card_dyeing = parent_doc.name
+                    batch_doc.save(ignore_permissions=True)
+                except Exception as e:
+                    frappe.log_error(f"Error updating batch {item.lot}: {str(e)}")
+                    continue
 
 
