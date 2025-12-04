@@ -59,6 +59,8 @@ def create_material_issue(docname):
                 try:
                     batch_doc = frappe.get_doc("Batch", item.lot)
                     batch_doc.custom_job_card_dyeing = parent_doc.name
+                    batch_doc.custom_color = parent_doc.color
+                    batch_doc.custom_finish_type = parent_doc.finish_type
                     batch_doc.save(ignore_permissions=True)
                 except Exception as e:
                     frappe.log_error(f"Error updating batch {item.lot}: {str(e)}")
