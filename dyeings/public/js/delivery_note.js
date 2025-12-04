@@ -1,3 +1,10 @@
+frappe.ui.form.on("Delivery Note", {
+     refresh: function (frm) {
+        // Run on form load and refresh
+     
+    }
+});
+
 frappe.ui.form.on("Delivery Note Item", {
      qty: function (frm, cdt, cdn) {
         waste_qty_and_waste_percent(frm, cdt, cdn);
