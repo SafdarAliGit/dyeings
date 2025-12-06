@@ -292,7 +292,7 @@
    "depends_on": "eval:doc.reprocess == 1;",
    "fieldname": "previous_job_card",
    "fieldtype": "Link",
-   "label": "Previous Job Card ",
+   "label": "Previous Job Card",
    "options": "Job Card Dyeing"
   }
  ],
@@ -305,7 +305,7 @@
    "link_fieldname": "custom_job_card_dyeing_finish"
   }
  ],
- "modified": "2025-12-06 18:38:44.214811",
+ "modified": "2025-12-06 18:54:36.859051",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
