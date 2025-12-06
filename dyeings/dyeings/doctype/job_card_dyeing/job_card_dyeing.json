@@ -11,12 +11,15 @@
   "naming_series",
   "greige_fabric_store",
   "amended_from",
+  "reprocess",
   "column_break_ev2vn",
   "party_name",
   "chemicals_store",
+  "reason_for_reprocess",
   "column_break_yfpxt",
   "color",
   "production_warehouse",
+  "previous_job_card",
   "column_break_tn7g",
   "finish_type",
   "finish_warehouse",
@@ -271,6 +274,26 @@
    "fieldname": "remarks",
    "fieldtype": "Small Text",
    "label": "Remarks"
+  },
+  {
+   "default": "0",
+   "fieldname": "reprocess",
+   "fieldtype": "Check",
+   "label": "Reprocess"
+  },
+  {
+   "depends_on": "eval:doc.reprocess == 1;",
+   "fieldname": "reason_for_reprocess",
+   "fieldtype": "Select",
+   "label": "Reason For Reprocess",
+   "options": "\nRematching\nResoft\nWidth"
+  },
+  {
+   "depends_on": "eval:doc.reprocess == 1;",
+   "fieldname": "previous_job_card",
+   "fieldtype": "Link",
+   "label": "Previous Job Card ",
+   "options": "Job Card Dyeing"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -282,7 +305,7 @@
    "link_fieldname": "custom_job_card_dyeing_finish"
   }
  ],
- "modified": "2025-12-03 19:42:23.983357",
+ "modified": "2025-12-06 18:38:44.214811",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
