@@ -66,20 +66,22 @@
   {
    "fieldname": "combo_name",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Combo Name"
+   "label": "Combo Name",
+   "reqd": 1
   },
   {
    "fieldname": "content",
    "fieldtype": "Link",
    "label": "Content",
-   "options": "Content"
+   "options": "Content",
+   "reqd": 1
   },
   {
    "fieldname": "operation",
    "fieldtype": "Link",
    "label": "Process Type",
-   "options": "Operation"
+   "options": "Operation",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_sru1m",
@@ -89,25 +91,28 @@
    "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "ref_shade_no",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Process Route ",
-   "options": "Dyeing Overhead"
+   "options": "Dyeing Overhead",
+   "reqd": 1
   },
   {
    "fieldname": "pantone_no",
    "fieldtype": "Data",
-   "label": "Pantone No"
+   "label": "Pantone No",
+   "reqd": 1
   },
   {
    "fieldname": "light_source",
    "fieldtype": "Select",
    "label": "Light Source",
-   "options": "\nD-65\nTL-84\nCWF\nUV\nOTHERS"
+   "options": "\nD-65\nTL-84\nCWF\nUV\nOTHERS",
+   "reqd": 1
   },
   {
    "default": "Service Item",
@@ -173,14 +178,16 @@
    "fieldname": "shade_type",
    "fieldtype": "Select",
    "label": "Shade Type",
-   "options": "\nHalf Bleach\nFull Bleach\nWhite\nWash"
+   "options": "\nHalf Bleach\nFull Bleach\nWhite\nWash",
+   "reqd": 1
   },
   {
    "depends_on": "eval:doc.customer == 'Chandna Corporation';",
    "fieldname": "inquiry_cost_sheet_garment",
    "fieldtype": "Link",
    "label": "Inquiry Cost Sheet Garment",
-   "options": "Inquiry Cost Sheet Garment"
+   "options": "Inquiry Cost Sheet Garment",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_r0huy",
@@ -192,7 +199,8 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Finish Item",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "section_break_hlkx3",
@@ -212,7 +220,8 @@
    "fieldname": "color",
    "fieldtype": "Link",
    "label": "Color",
-   "options": "Colors"
+   "options": "Colors",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -254,7 +263,8 @@
    "fieldtype": "Link",
    "label": " Dyed Fabric Name",
    "options": "Item",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "material_request",
@@ -266,7 +276,8 @@
    "fieldname": "finish_type",
    "fieldtype": "Select",
    "label": "Finish Type",
-   "options": "\nOpen Width\nTube Finish"
+   "options": "\nOpen Width\nTube Finish",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
@@ -278,7 +289,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2025-10-17 18:46:50.232025",
+ "modified": "2025-12-09 20:48:34.704233",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",

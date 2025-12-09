@@ -39,10 +39,13 @@
   "shade_process_no",
   "section_break_hm91j",
   "raw_item_chamicals",
+  "total_chemicals_amount",
   "raw_item_dyes_section",
   "raw_item_dyes",
+  "total_dyes_amount",
   "toping_section",
   "toping",
+  "tota_toping_amount",
   "section_break_k3sxa",
   "total_amount",
   "column_break_takpw",
@@ -294,6 +297,27 @@
    "fieldtype": "Link",
    "label": "Previous Job Card",
    "options": "Job Card Dyeing"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_chemicals_amount",
+   "fieldtype": "Currency",
+   "label": "Total Chemicals Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_dyes_amount",
+   "fieldtype": "Currency",
+   "label": "Total Dyes Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "tota_toping_amount",
+   "fieldtype": "Currency",
+   "label": "Tota Toping Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -305,7 +329,7 @@
    "link_fieldname": "custom_job_card_dyeing_finish"
   }
  ],
- "modified": "2025-12-06 19:01:32.603721",
+ "modified": "2025-12-09 21:16:29.345158",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

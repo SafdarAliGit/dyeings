@@ -70,7 +70,16 @@ frappe.ui.form.on('Greige Fabric Detail', {
   frappe.ui.form.on('Raw Item Dyes', {
 	percentage: function(frm, cdt, cdn) {
         apply_percentage_on_dyes(frm, cdt, cdn);
+        calculate_dyes_total(frm);
 	}
+  });
+   frappe.ui.form.on('Raw Item Dyes', {
+	qty: function(frm, cdt, cdn) {
+        calculate_toping_total(frm);
+	},
+    rate:function(frm, cdt, cdn){
+        calculate_toping_total(frm);
+    }
   });
 
   function calculate_totals(frm, cdt, cdn, field_to_set,child_table_fieldname, fieldname, precision = 4) {
@@ -122,6 +131,7 @@ frappe.ui.form.on('Greige Fabric Detail', {
                     });
                 });
                 frm.refresh_field("raw_item_chamicals");
+                calculate_chemicals_total(frm);
             }
             
             if (frm.fields_dict['raw_item_dyes']) {
@@ -139,6 +149,7 @@ frappe.ui.form.on('Greige Fabric Detail', {
                     });
                 });
                 frm.refresh_field("raw_item_dyes");
+                calculate_dyes_total(frm)
             }
         }
     });
@@ -239,4 +250,34 @@ function fetch_sub_operations(frm){
             }
         }
     });
+}
+
+
+function calculate_chemicals_total(frm) {
+    let total = 0;
+
+    (frm.doc.raw_item_chamicals || []).forEach(row => {
+        total += flt(row.amount);
+    });
+
+    frm.set_value("total_chemicals_amount", total);
+}
+
+function calculate_dyes_total(frm) {
+    let total = 0;
+
+    (frm.doc.raw_item_dyes || []).forEach(row => {
+        total += flt(row.amount);
+    });
+
+    frm.set_value("total_dyes_amount", total);
+}
+function calculate_toping_total(frm) {
+    let total = 0;
+
+    (frm.doc.toping || []).forEach(row => {
+        total += flt(row.amount);
+    });
+
+    frm.set_value("total_toping_amount", total);
 }
