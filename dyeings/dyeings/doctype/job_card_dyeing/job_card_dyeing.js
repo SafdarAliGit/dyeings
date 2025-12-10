@@ -47,20 +47,21 @@ frappe.ui.form.on('Job Card Dyeing', {
             };
         });
 
-                    frm.set_query("item", "raw_item_chemicals", function (doc, cdt, cdn) {
-                return {
-                    filters: [
-                        ["Item", "item_group", "=", "Chemicals"]
-                    ]
-                };
+        frm.set_query("item", "raw_item_chamicals", function (doc, cdt, cdn) {
+
+            return {
+                filters: {
+                    "item_group": "Chemicals"
+                }
+            };
             });
 
             frm.set_query("item", "raw_item_dyes", function (doc, cdt, cdn) {
-                return {
-                    filters: [
-                        ["Item", "item_group", "=", "Dyes"]
-                    ]
-                };
+                  return {
+                filters: {
+                    "item_group": "Dyes"
+                }
+            };
             });
 
 
@@ -202,6 +203,8 @@ frappe.ui.form.on("Toping", {
         });
     }
 });
+
+
 
 function fabric_issue(frm){
     // if (frm.doc.docstatus === 1) {  // Only after submit
