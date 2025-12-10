@@ -43,7 +43,8 @@ frappe.ui.form.on('Job Card Dyeing', {
             return {
                 filters: [
                     ["customer", "=", frm.doc.party_name],
-                    ["color", "=", frm.doc.color]
+                    ["color", "=", frm.doc.color],
+                    ["docstatus", "=", 1]
                 ]
             };
         });
