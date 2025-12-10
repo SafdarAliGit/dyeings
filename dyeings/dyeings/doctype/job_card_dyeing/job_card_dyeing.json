@@ -332,9 +332,19 @@
    "group": "Toping Material Request",
    "link_doctype": "Material Request",
    "link_fieldname": "custom_job_card_dyeing_row_wise"
+  },
+  {
+   "group": "Dyes Material Request",
+   "link_doctype": "Material Request",
+   "link_fieldname": "custom_job_card_dyeing_dyes"
+  },
+  {
+   "group": "Chemicals Materil Request",
+   "link_doctype": "Material Request",
+   "link_fieldname": "custom_job_card_dyeing"
   }
  ],
- "modified": "2025-12-10 19:56:42.384476",
+ "modified": "2025-12-10 21:10:45.139708",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

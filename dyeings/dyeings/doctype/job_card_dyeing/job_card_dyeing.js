@@ -4,8 +4,12 @@ frappe.ui.form.on('Job Card Dyeing', {
             fabric_issue(frm);
         }).removeClass("btn-default").addClass("btn btn-xs btn-yellow");
 
-		frm.add_custom_button(__('Request Raw Material'), function () {
-            create_material_request_chemicals_and_dyes(frm);
+		frm.add_custom_button(__('Request Chemicals'), function () {
+            create_material_request_chemicals(frm);
+        }).removeClass("btn-default").addClass("btn btn-xs btn-peach").css("background-color", "#f36876ff");
+
+        frm.add_custom_button(__('Request Dyes'), function () {
+            create_material_request_dyes(frm);
         }).removeClass("btn-default").addClass("btn btn-xs btn-peach");
 
 		frm.add_custom_button(__('Job Start'), function () {
@@ -191,9 +195,28 @@ function fabric_issue(frm){
     // }
 }
 
-function create_material_request_chemicals_and_dyes(frm){
+function create_material_request_chemicals(frm){
 frappe.call({
-    method: "dyeings.dyeings.utils.create_material_request.create_material_request_chemicals_and_dyes",
+    method: "dyeings.dyeings.utils.create_material_request.create_material_request_chemicals",
+    args: {
+        job_card_name: frm.doc.name
+    },
+    callback: function(r) {
+        if (!r.exc) {
+            frappe.msgprint({
+                title: __('Success'),
+                message: __('Material Request created: <b>' + r.message + '</b>'),
+                indicator: 'green'
+            });
+            
+        }
+    }
+});
+}
+
+function create_material_request_dyes(frm){
+frappe.call({
+    method: "dyeings.dyeings.utils.create_material_request.create_material_request_dyes",
     args: {
         job_card_name: frm.doc.name
     },
