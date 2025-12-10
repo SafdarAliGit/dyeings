@@ -98,8 +98,7 @@
    "fieldname": "ref_shade_no",
    "fieldtype": "Link",
    "label": "Process Route ",
-   "options": "Dyeing Overhead",
-   "reqd": 1
+   "options": "Dyeing Overhead"
   },
   {
    "fieldname": "pantone_no",
@@ -289,7 +288,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2025-12-09 20:48:34.704233",
+ "modified": "2025-12-10 18:41:28.993414",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
