@@ -327,9 +327,14 @@
    "group": "Finish Stock Entry",
    "link_doctype": "Stock Entry",
    "link_fieldname": "custom_job_card_dyeing_finish"
+  },
+  {
+   "group": "Toping Material Request",
+   "link_doctype": "Material Request",
+   "link_fieldname": "custom_job_card_dyeing_row_wise"
   }
  ],
- "modified": "2025-12-09 21:16:29.345158",
+ "modified": "2025-12-10 19:56:42.384476",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

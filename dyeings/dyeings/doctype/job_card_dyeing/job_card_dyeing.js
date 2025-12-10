@@ -154,6 +154,24 @@ frappe.ui.form.on('Greige Fabric Detail', {
         }
     });
 }
+frappe.ui.form.on("Toping", {
+    material_request: function() {}, // keep empty
+
+    create_material_request: function(frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
+
+        frm.call({
+            method: "create_material_request_row",
+            doc: frm.doc,
+            args: {
+                row_name: cdn
+            },
+            callback(r) {
+                frm.reload_doc();
+            }
+        });
+    }
+});
 
 function fabric_issue(frm){
     // if (frm.doc.docstatus === 1) {  // Only after submit
