@@ -201,6 +201,39 @@ frappe.ui.form.on("Toping", {
                 frm.reload_doc();
             }
         });
+    },
+
+  item: function (frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
+
+        if (!row.item || !frm.doc.chemicals_store) {
+            return;
+        }
+
+        // Call server function to get rate
+        frappe.call({
+            method: "dyeings.dyeings.utils.fetch_rate.fetch_rate",   // CHANGE PATH
+            args: {
+                item_code: row.item,
+                warehouse: frm.doc.chemicals_store
+            },
+            callback: function (r) {
+                if (r && r.message) {
+                    let rate = r.message.rate || 0;
+
+                    frappe.model.set_value(cdt, cdn, "rate", rate);
+
+                    // Calculate amount
+                    let amt = (row.qty || 0) * rate;
+                    frappe.model.set_value(cdt, cdn, "amount", amt);
+                }
+            }
+        });
+    },
+    qty:function(frm, cdt, cdn){
+        let row = locals[cdt][cdn];
+        let amount = row.qty * row.rate;
+        frappe.model.set_value(cdt, cdn, "amount", amount);
     }
 });
 
