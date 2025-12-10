@@ -47,20 +47,22 @@ frappe.ui.form.on('Job Card Dyeing', {
             };
         });
 
-        frm.set_query("item", "raw_item_chemicals", function (doc, cdt, cdn) {
-            return {
-                filters: [
-                    ["Item", "item_group", "=", "Chemicals"]
-                ]
-            };
-        });
-        frm.set_query("item", "raw_item_dyes", function (doc, cdt, cdn) {
-            return {
-                filters: [
-                    ["Item", "item_group", "=", "Dyes"]
-                ]
-            };
-        });
+                    frm.set_query("item", "raw_item_chemicals", function (doc, cdt, cdn) {
+                return {
+                    filters: [
+                        ["Item", "item_group", "=", "Chemicals"]
+                    ]
+                };
+            });
+
+            frm.set_query("item", "raw_item_dyes", function (doc, cdt, cdn) {
+                return {
+                    filters: [
+                        ["Item", "item_group", "=", "Dyes"]
+                    ]
+                };
+            });
+
 
         frm.set_query("shade_process_no", function () {
             return {
