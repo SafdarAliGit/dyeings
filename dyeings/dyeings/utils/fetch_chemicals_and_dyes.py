@@ -19,7 +19,7 @@ def fetch_chemicals_and_dyes(shade_process_no):
         filters={
             "parent": shade_process_no
         },
-        fields=["seq_no", "item", "percentage", "uom", "qty", "rate", "amount"],
+        fields=["seq_no", "item", "percentage", "uom", "qty", "rate", "amount","process_type"],
         order_by="idx"
     )
 

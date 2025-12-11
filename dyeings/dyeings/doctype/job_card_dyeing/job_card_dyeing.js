@@ -176,6 +176,7 @@ frappe.ui.form.on('Greige Fabric Detail', {
                         percentage: item.percentage,
                         uom: item.uom,
                         qty_per_kg: item.qty,
+                        process_type:item.process_type,
                         qty: item.qty * frm.doc.total_fabric_issue || 0,
                         rate: item.rate,
                         amount: item.rate * item.qty * frm.doc.total_fabric_issue || 0
