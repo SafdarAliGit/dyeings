@@ -31,16 +31,17 @@ frappe.ui.form.on('Job Card Dyeing', {
                 }
             };
         });
-       frm.set_query("lot", "greige_fabric_detail", function (doc, cdt, cdn) {
-            let party = doc.party_name;
-
-            return {
-                filters: [
-                    ["custom_customer", "=", party],
-                    ["custom_customer_name", "=", party]
-                ]
-            };
-        });
+            frm.set_query("lot", "greige_fabric_detail", function (doc, cdt, cdn) {
+                let party = doc.party_name;
+                
+                return {
+                    filters: [
+                        ["custom_customer", "=", party,
+                        "or",
+                        "custom_customer_name", "=", party]
+                    ]
+                };
+            });
 
        frm.set_query("item", "toping", function (doc, cdt, cdn) {
             return {
