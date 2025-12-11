@@ -34,9 +34,10 @@ frappe.ui.form.on('Job Card Dyeing', {
         frm.set_query("lot", "greige_fabric_detail", function (doc, cdt, cdn) {
             let row = locals[cdt][cdn];
             return {
-                filters: {
-                    "custom_customer_name": frm.doc.party_name
-                }
+                filters: [
+                    ["custom_customer_name","=", frm.doc.party_name],
+                    ["batch_qty",">",0]
+                ]
             };
         });
        frm.set_query("item", "toping", function (doc, cdt, cdn) {
