@@ -45,7 +45,7 @@
   "total_dyes_amount",
   "toping_section",
   "toping",
-  "tota_toping_amount",
+  "total_toping_amount",
   "section_break_k3sxa",
   "total_amount",
   "column_break_takpw",
@@ -314,9 +314,9 @@
   },
   {
    "default": "0",
-   "fieldname": "tota_toping_amount",
+   "fieldname": "total_toping_amount",
    "fieldtype": "Currency",
-   "label": "Tota Toping Amount",
+   "label": "Total Toping Amount",
    "read_only": 1
   }
  ],
@@ -344,7 +344,7 @@
    "link_fieldname": "custom_job_card_dyeing"
   }
  ],
- "modified": "2025-12-10 21:10:45.139708",
+ "modified": "2025-12-11 17:50:10.318225",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

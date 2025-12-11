@@ -12,7 +12,8 @@
   "qty_per_kg",
   "qty_required",
   "rate",
-  "amount"
+  "amount",
+  "process_type"
  ],
  "fields": [
   {
@@ -62,17 +63,24 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Amount"
+  },
+  {
+   "fieldname": "process_type",
+   "fieldtype": "Data",
+   "label": "Process Type",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-30 20:09:08.148617",
+ "modified": "2025-12-11 18:26:55.852574",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Raw Item Chamicals",
  "owner": "Administrator",
  "permissions": [],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

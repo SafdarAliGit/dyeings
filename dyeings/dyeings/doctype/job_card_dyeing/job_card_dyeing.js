@@ -35,7 +35,7 @@ frappe.ui.form.on('Job Card Dyeing', {
             let row = locals[cdt][cdn];
             return {
                 filters: {
-                    "custom_customer": frm.doc.party_name
+                    "custom_customer_name": frm.doc.party_name
                 }
             };
         });
@@ -157,6 +157,7 @@ frappe.ui.form.on('Greige Fabric Detail', {
                         uom: item.uom,
                         qty_per_kg: item.qty,
                         rate: item.rate,
+                        process_type:item.process_type,
 						qty_required: item.qty * frm.doc.total_fabric_issue || 0,
                         amount: item.rate * item.qty * frm.doc.total_fabric_issue || 0
                     });
@@ -226,6 +227,7 @@ frappe.ui.form.on("Toping", {
                     // Calculate amount
                     let amt = (row.qty || 0) * rate;
                     frappe.model.set_value(cdt, cdn, "amount", amt);
+                    calculate_toping_total(frm);
                 }
             }
         });
@@ -234,6 +236,7 @@ frappe.ui.form.on("Toping", {
         let row = locals[cdt][cdn];
         let amount = row.qty * row.rate;
         frappe.model.set_value(cdt, cdn, "amount", amount);
+        calculate_toping_total(frm);
     }
 });
 
@@ -321,6 +324,7 @@ function apply_percentage_on_chemicals(frm, cdt, cdn){
     frappe.model.set_value(cdt, cdn, 'qty_per_kg', qty_per_kg);
     frappe.model.set_value(cdt, cdn, 'qty_required', flt(qty_per_kg) * flt(frm.doc.total_fabric_issue));
     frappe.model.set_value(cdt, cdn, 'amount', row.rate * flt(row.qty_required));
+    calculate_total_amount_and_rate_per_kg(frm)
 }
 
 function apply_percentage_on_dyes(frm, cdt, cdn){
@@ -330,6 +334,7 @@ function apply_percentage_on_dyes(frm, cdt, cdn){
     frappe.model.set_value(cdt, cdn, 'qty_per_kg', qty_per_kg);
     frappe.model.set_value(cdt, cdn, 'qty', flt(qty_per_kg) * flt(frm.doc.total_fabric_issue));
     frappe.model.set_value(cdt, cdn, 'amount', row.rate * flt(row.qty));
+    calculate_total_amount_and_rate_per_kg(frm)
 }
 
 function fetch_sub_operations(frm){
@@ -364,6 +369,8 @@ function calculate_chemicals_total(frm) {
     });
 
     frm.set_value("total_chemicals_amount", total);
+
+    calculate_total_amount_and_rate_per_kg(frm)
 }
 
 function calculate_dyes_total(frm) {
@@ -374,6 +381,8 @@ function calculate_dyes_total(frm) {
     });
 
     frm.set_value("total_dyes_amount", total);
+
+    calculate_total_amount_and_rate_per_kg(frm)
 }
 function calculate_toping_total(frm) {
     let total = 0;
@@ -383,4 +392,18 @@ function calculate_toping_total(frm) {
     });
 
     frm.set_value("total_toping_amount", total);
+
+    calculate_total_amount_and_rate_per_kg(frm)
+}
+
+function calculate_total_amount_and_rate_per_kg(frm) {
+    let total_chemicals_amount = frm.doc.total_chemicals_amount || 0;
+    let total_dyes_amount = frm.doc.total_dyes_amount || 0;
+    let total_toping_amount = frm.doc.total_toping_amount || 0;
+    let total_amount = total_chemicals_amount + total_dyes_amount + total_toping_amount;
+    frm.set_value("total_amount", total_amount);
+    if(frm.doc.total_fabric_issue > 0){
+        let rate_per_kg = total_amount / frm.doc.total_fabric_issue;
+        frm.set_value("rate_per_kg", rate_per_kg);
+    }
 }

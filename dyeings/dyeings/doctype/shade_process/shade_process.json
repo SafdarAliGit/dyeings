@@ -66,8 +66,7 @@
   {
    "fieldname": "combo_name",
    "fieldtype": "Data",
-   "label": "Combo Name",
-   "reqd": 1
+   "label": "Combo Name"
   },
   {
    "fieldname": "content",
@@ -177,16 +176,14 @@
    "fieldname": "shade_type",
    "fieldtype": "Select",
    "label": "Shade Type",
-   "options": "\nHalf Bleach\nFull Bleach\nWhite\nWash",
-   "reqd": 1
+   "options": "\nHalf Bleach\nFull Bleach\nWhite\nWash"
   },
   {
    "depends_on": "eval:doc.customer == 'Chandna Corporation';",
    "fieldname": "inquiry_cost_sheet_garment",
    "fieldtype": "Link",
    "label": "Inquiry Cost Sheet Garment",
-   "options": "Inquiry Cost Sheet Garment",
-   "reqd": 1
+   "options": "Inquiry Cost Sheet Garment"
   },
   {
    "fieldname": "column_break_r0huy",
@@ -262,8 +259,7 @@
    "fieldtype": "Link",
    "label": " Dyed Fabric Name",
    "options": "Item",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "material_request",
@@ -288,7 +284,7 @@
    "link_fieldname": "ref_no"
   }
  ],
- "modified": "2025-12-10 18:41:28.993414",
+ "modified": "2025-12-11 17:38:54.790092",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process",
