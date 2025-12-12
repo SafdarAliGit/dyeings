@@ -29,7 +29,10 @@ app_include_css = "/assets/dyeings/css/job_card_dyeing.css"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Delivery Note" : "public/js/delivery_note.js"}
+doctype_js = {"Delivery Note" : "public/js/dn.js",
+"Quotation": "public/js/custom_quotation.js"
+
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -214,5 +217,4 @@ doc_events = {
 # auth_hooks = [
 #	"dyeings.auth.validate"
 # ]
-doctype_js = {"Quotation": "public/js/custom_quotation.js",
-              }
+
