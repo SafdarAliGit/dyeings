@@ -198,6 +198,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.reprocess == 0",
    "fieldname": "shade_process_no",
    "fieldtype": "Link",
    "label": "Shade Process No",
@@ -344,7 +345,7 @@
    "link_fieldname": "custom_job_card_dyeing"
   }
  ],
- "modified": "2025-12-16 18:28:15.743875",
+ "modified": "2025-12-20 16:32:43.126310",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",

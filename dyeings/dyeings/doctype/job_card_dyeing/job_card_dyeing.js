@@ -90,7 +90,11 @@ frappe.ui.form.on('Greige Fabric Detail', {
 	},
 	lot:function(frm, cdt, cdn){
 		calculate_totals(frm, cdt, cdn, "qty_total","greige_fabric_detail", "qty_available", 4);
-	}
+	},
+    greige_fabric_detail_remove:function(frm, cdt, cdn){
+        calculate_totals(frm, cdt, cdn, "total_fabric_issue","greige_fabric_detail", "qty_issue", 4);
+        calculate_totals(frm, cdt, cdn, "qty_total","greige_fabric_detail", "qty_available", 4);
+    }
   });
   
   frappe.ui.form.on('Raw Item Chamicals', {
