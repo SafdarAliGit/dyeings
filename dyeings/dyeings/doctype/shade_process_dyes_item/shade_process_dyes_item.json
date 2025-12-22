@@ -68,14 +68,15 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Process Type",
-   "options": "\nPolyester\nCotton"
+   "options": "\nPolyester\nCotton",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-12-11 17:42:24.844643",
+ "modified": "2025-12-22 20:35:14.114013",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Shade Process Dyes Item",

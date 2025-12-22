@@ -5,7 +5,21 @@ from frappe.model.naming import make_autoname
 
 
 class ShadeProcess(Document):
-    pass
+    def validate(self):
+        # Check Chemicals child table
+        for row in self.shade_process_chemicals_item:
+            if row.rate is not None and row.rate <= 0:
+                frappe.throw(
+                    "Rate cannot be less than or equal to 0 in Shade Process Chemicals (Row {0})".format(row.idx)
+                )
+
+        # Check Dyes child table
+        for row in self.shade_process_dyes_item:
+            if row.rate is not None and row.rate <= 0:
+                frappe.throw(
+                    "Rate cannot be less than or equal to 0 in Shade Process Dyes (Row {0})".format(row.idx)
+                )
+        
     
     # def before_save(self):
     #     self.finish_item = f"{self.fabric_type} - {self.name}"
