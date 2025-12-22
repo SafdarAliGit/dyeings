@@ -81,7 +81,16 @@ frappe.ui.form.on('Job Card Dyeing', {
 	},
     operation:function(frm){
 		fetch_sub_operations(frm);
-	}
+	},
+    reprocess:function(frm){
+        frm.doc.raw_item_chamicals = [];
+        frm.doc.raw_item_dyes = [];
+        frm.refresh_field('raw_item_chamicals');
+        frm.refresh_field('raw_item_dyes');
+        frm.set_value('total_chemicals_amount', 0);
+        frm.set_value('total_dyes_amount', 0);
+        calculate_total_amount_and_rate_per_kg(frm);
+    }
 });
 
 frappe.ui.form.on('Greige Fabric Detail', {
@@ -100,22 +109,26 @@ frappe.ui.form.on('Greige Fabric Detail', {
   frappe.ui.form.on('Raw Item Chamicals', {
 	percentage: function(frm, cdt, cdn) {
         apply_percentage_on_chemicals(frm, cdt, cdn);
-	}
+	},
+    raw_item_chamicals_remove:function(frm) {
+        calculate_chemicals_total(frm);
+    }
   });
 
-  frappe.ui.form.on('Raw Item Dyes', {
-	percentage: function(frm, cdt, cdn) {
-        apply_percentage_on_dyes(frm, cdt, cdn);
-        calculate_dyes_total(frm);
-	}
-  });
    frappe.ui.form.on('Raw Item Dyes', {
 	qty: function(frm, cdt, cdn) {
         calculate_toping_total(frm);
 	},
     rate:function(frm, cdt, cdn){
         calculate_toping_total(frm);
-    }
+    },
+    raw_item_dyes_remove: function(frm){
+        calculate_dyes_total(frm);
+    },
+    percentage: function(frm, cdt, cdn) {
+        apply_percentage_on_dyes(frm, cdt, cdn);
+        calculate_dyes_total(frm);
+	}
   });
 
   function calculate_totals(frm, cdt, cdn, field_to_set,child_table_fieldname, fieldname, precision = 4) {
@@ -148,8 +161,6 @@ frappe.ui.form.on('Greige Fabric Detail', {
             const chemicals = data.chemicals || [];
             const dyes = data.dyes || [];
 
-			console.log("Chemicals:", chemicals);
-			console.log("Dyes:", dyes);
             
             // Populate tables only if they exist
             if (frm.fields_dict['raw_item_chamicals']) {
@@ -242,6 +253,9 @@ frappe.ui.form.on("Toping", {
         let row = locals[cdt][cdn];
         let amount = row.qty * row.rate;
         frappe.model.set_value(cdt, cdn, "amount", amount);
+        calculate_toping_total(frm);
+    },
+    toping_removed: function(frm){
         calculate_toping_total(frm);
     }
 });
