@@ -28,7 +28,7 @@ def create_material_request_chemicals(job_card_name):
     mr.material_request_type = "Material Transfer"
     mr.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
     mr.transaction_date = job_card.date or frappe.utils.today()
-    mr.custom_job_card_dyeing = job_card.name
+    mr.custom_job_card_dyeing_chemicals = job_card.name
 
     # --- Pull items from raw_item_chamicals child table ---
     for item in job_card.raw_item_chamicals:

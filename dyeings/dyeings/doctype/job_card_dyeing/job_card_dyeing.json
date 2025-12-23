@@ -344,12 +344,12 @@
    "link_fieldname": "custom_job_card_dyeing_dyes"
   },
   {
-   "group": "Chemicals Materil Request",
+   "group": "Chemicals Material Request",
    "link_doctype": "Material Request",
-   "link_fieldname": "custom_job_card_dyeing"
+   "link_fieldname": "custom_job_card_dyeing_chemicals"
   }
  ],
- "modified": "2025-12-22 20:08:58.322303",
+ "modified": "2025-12-23 17:15:47.898469",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
