@@ -55,7 +55,7 @@ def finish_stock_entry(job_card_name):
 
         # Optional: submit if required
         se.submit()
-
+        frappe.set_value("Job Card Dyeing", job_card_name, "finish", se.name)
         return se.name
 
     else:   
@@ -138,5 +138,5 @@ def finish_stock_entry(job_card_name):
 
         # Optional: submit if required
         se.submit()
-
+        frappe.set_value("Job Card Dyeing", job_card_name, "finish", se.name)
         return se.name

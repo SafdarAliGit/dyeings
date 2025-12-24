@@ -51,6 +51,7 @@ def create_material_issue(docname):
         })
 
     se.insert(ignore_permissions=True)
+    frappe.set_value("Job Card Dyeing", docname, "fabric", se.name)
     se.submit()
     
     if parent_doc.greige_fabric_detail:

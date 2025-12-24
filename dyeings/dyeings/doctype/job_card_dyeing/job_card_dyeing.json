@@ -8,6 +8,15 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "connects_section",
+  "chemicals",
+  "column_break_unsd",
+  "dyes",
+  "column_break_sjld",
+  "fabric",
+  "column_break_4rq8",
+  "finish",
+  "section_break_2h3n",
   "naming_series",
   "greige_fabric_store",
   "amended_from",
@@ -53,13 +62,7 @@
   "operation_route_section",
   "operation",
   "section_break_iftg",
-  "operation_route",
-  "connects_section",
-  "chemicals",
-  "column_break_unsd",
-  "dyes",
-  "column_break_57d4",
-  "topings"
+  "operation_route"
  ],
  "fields": [
   {
@@ -356,43 +359,38 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_57d4",
-   "fieldtype": "Column Break"
+   "fieldname": "section_break_2h3n",
+   "fieldtype": "Section Break"
   },
   {
    "allow_on_submit": 1,
-   "fieldname": "topings",
+   "fieldname": "fabric",
    "fieldtype": "Link",
-   "label": "Topings",
-   "options": "Material Request",
+   "label": "Fabric",
+   "options": "Stock Entry",
    "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "finish",
+   "fieldtype": "Link",
+   "label": "Finish",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sjld",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4rq8",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [
-  {
-   "group": "Finish Stock Entry",
-   "link_doctype": "Stock Entry",
-   "link_fieldname": "custom_job_card_dyeing_finish"
-  },
-  {
-   "group": "Material Request Toping",
-   "link_doctype": "Material Request",
-   "link_fieldname": "custom_job_card_dyeing_row_wise"
-  },
-  {
-   "group": "Material Request Dyes",
-   "link_doctype": "Material Request",
-   "link_fieldname": "custom_job_card_dyeing_dyes"
-  },
-  {
-   "group": "Material Request Chemicals",
-   "link_doctype": "Material Request",
-   "link_fieldname": "custom_job_card_dyeing_chemicals"
-  }
- ],
- "modified": "2025-12-24 15:42:36.530328",
+ "links": [],
+ "modified": "2025-12-24 21:00:18.803586",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
