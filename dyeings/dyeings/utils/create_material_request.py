@@ -11,7 +11,7 @@ def create_material_request_chemicals(job_card_name):
     existing_mr = frappe.db.get_value(
     "Material Request",
     {
-        "custom_job_card_dyeing": job_card.name,
+        "custom_job_card_dyeing_chemicals": job_card.name,
         "docstatus": ("!=", 2),
         "material_request_type": "Material Transfer"  
     },
@@ -48,7 +48,7 @@ def create_material_request_chemicals(job_card_name):
 
     # Optional: submit if required
     mr.submit()
-
+    frappe.set_value("Job Card Dyeing", job_card_name, "chemicals", mr.name)
     return mr.name
     
 
@@ -99,5 +99,5 @@ def create_material_request_dyes(job_card_name):
 
     # Optional: submit if required
     mr.submit()
-
+    frappe.set_value("Job Card Dyeing", job_card_name, "dyes", mr.name)
     return mr.name

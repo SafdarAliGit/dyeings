@@ -53,7 +53,13 @@
   "operation_route_section",
   "operation",
   "section_break_iftg",
-  "operation_route"
+  "operation_route",
+  "connects_section",
+  "chemicals",
+  "column_break_unsd",
+  "dyes",
+  "column_break_57d4",
+  "topings"
  ],
  "fields": [
   {
@@ -323,6 +329,43 @@
    "fieldtype": "Currency",
    "label": "Total Toping Amount",
    "read_only": 1
+  },
+  {
+   "fieldname": "connects_section",
+   "fieldtype": "Section Break",
+   "label": "Connects"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "chemicals",
+   "fieldtype": "Link",
+   "label": "Chemicals",
+   "options": "Material Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_unsd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "dyes",
+   "fieldtype": "Link",
+   "label": "Dyes",
+   "options": "Material Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_57d4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "topings",
+   "fieldtype": "Link",
+   "label": "Topings",
+   "options": "Material Request",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -334,22 +377,22 @@
    "link_fieldname": "custom_job_card_dyeing_finish"
   },
   {
-   "group": "Toping Material Request",
+   "group": "Material Request Toping",
    "link_doctype": "Material Request",
    "link_fieldname": "custom_job_card_dyeing_row_wise"
   },
   {
-   "group": "Dyes Material Request",
+   "group": "Material Request Dyes",
    "link_doctype": "Material Request",
    "link_fieldname": "custom_job_card_dyeing_dyes"
   },
   {
-   "group": "Chemicals Material Request",
+   "group": "Material Request Chemicals",
    "link_doctype": "Material Request",
    "link_fieldname": "custom_job_card_dyeing_chemicals"
   }
  ],
- "modified": "2025-12-23 17:15:47.898469",
+ "modified": "2025-12-24 15:42:36.530328",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
