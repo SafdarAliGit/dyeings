@@ -56,7 +56,7 @@ def finish_stock_entry(job_card_name):
         # Optional: submit if required
         se.submit()
         frappe.set_value("Job Card Dyeing", job_card_name, "finish", se.name)
-        return se.name
+        return {"stock_entry": se.name}
 
     else:   
 
@@ -139,4 +139,43 @@ def finish_stock_entry(job_card_name):
         # Optional: submit if required
         se.submit()
         frappe.set_value("Job Card Dyeing", job_card_name, "finish", se.name)
-        return se.name
+
+        # Fabric Consumptions
+        fc = frappe.db.get_value(
+        "Stock Entry",
+        {
+            "custom_job_card_dyeing_consumption": job_card.name,
+            "docstatus": ("!=", 2),
+            "stock_entry_type": "Fabric Consumption"  
+        },
+        ["name"],
+        as_dict=True
+        )
+
+        if fc:
+            frappe.throw(
+                    f"Stock Entry {fc.name} already exists with type {fc.stock_entry_type}. "
+                )
+        # Create new Material Request doc
+        fcse = frappe.new_doc("Stock Entry")
+        fcse.stock_entry_type = "Fabric Consumption"
+        fcse.set_posting_time = 1
+        fcse.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
+        fcse.posting_date = job_card.date or frappe.utils.today()
+        fcse.posting_time = frappe.utils.nowtime()
+        fcse.custom_job_card_dyeing_consumption = job_card.name
+        fcse.from_warehouse = job_card.production_warehouse
+        for row in job_card.greige_fabric_detail:
+
+            item = frappe.get_doc("Item", row.fabric_item)
+            fcse.append("items", {
+                "item_code": row.fabric_item,
+                "qty": flt(row.qty_issue),
+                "uom": item.stock_uom,
+                "batch_no": row.lot,
+                "use_serial_batch_fields": 1,
+                "allow_zero_valuation_rate": 1
+            })
+        fcse.submit()
+        frappe.set_value("Job Card Dyeing", job_card_name, "consumption", fcse.name)
+        return {"stock_entry": se.name, "fabric_consumption": fcse.name}

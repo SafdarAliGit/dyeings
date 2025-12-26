@@ -328,7 +328,7 @@ function create_finish_stock_entry(frm){
             if (!r.exc) {
                 frappe.msgprint({
                     title: __('Success'),
-                    message: __('Stock Entry created: <b>' + r.message + '</b>'),
+                    message: __('Stock Entry created: <b>' + r.message.stock_entry + '</b>'),
                     indicator: 'green'
                 });
                 

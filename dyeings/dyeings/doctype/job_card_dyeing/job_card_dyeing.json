@@ -16,6 +16,8 @@
   "fabric",
   "column_break_4rq8",
   "finish",
+  "column_break_h6x1",
+  "consumption",
   "section_break_2h3n",
   "naming_series",
   "greige_fabric_store",
@@ -385,12 +387,24 @@
   {
    "fieldname": "column_break_4rq8",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_h6x1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "consumption",
+   "fieldtype": "Link",
+   "label": "Consumption",
+   "options": "Stock Entry",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-24 21:00:18.803586",
+ "modified": "2025-12-26 23:05:30.686287",
  "modified_by": "Administrator",
  "module": "Dyeings",
  "name": "Job Card Dyeing",
