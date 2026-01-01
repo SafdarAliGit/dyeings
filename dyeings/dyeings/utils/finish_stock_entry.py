@@ -29,7 +29,7 @@ def finish_stock_entry(job_card_name):
         se.stock_entry_type = "Material Transfer"
         se.set_posting_time = 1
         se.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
-        se.posting_date = job_card.date or frappe.utils.today()
+        se.posting_date = frappe.utils.today()
         se.posting_time = frappe.utils.nowtime()
         se.custom_job_card_dyeing_finish = job_card.name
 
@@ -81,7 +81,7 @@ def finish_stock_entry(job_card_name):
         se.stock_entry_type = "Repack"
         se.set_posting_time = 1
         se.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
-        se.posting_date = job_card.date or frappe.utils.today()
+        se.posting_date = frappe.utils.today()
         se.posting_time = frappe.utils.nowtime()
         se.custom_job_card_dyeing_finish = job_card.name
 
@@ -161,7 +161,7 @@ def finish_stock_entry(job_card_name):
         fcse.stock_entry_type = "Fabric Consumption"
         fcse.set_posting_time = 1
         fcse.company = job_card.company if hasattr(job_card, "company") else frappe.defaults.get_global_default("company")
-        fcse.posting_date = job_card.date or frappe.utils.today()
+        fcse.posting_date = frappe.utils.today()
         fcse.posting_time = frappe.utils.nowtime()
         fcse.custom_job_card_dyeing_consumption = job_card.name
         fcse.from_warehouse = job_card.production_warehouse
